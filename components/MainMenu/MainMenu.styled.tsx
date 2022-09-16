@@ -31,10 +31,10 @@ export const menuVariants = {
 };
 
 export const listItemsVarints = {
-  open: (i: number) => ({
+  open: (custom: number) => ({
     x: 0,
     opacity: 1,
-    transition: {duration: 0.3, delay: i * 0.05},
+    transition: {duration: 0.3, delay: custom * 0.05},
   }),
   close: {
     opacity: 0,

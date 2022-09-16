@@ -1,7 +1,7 @@
 import {StyledBurger} from './Burger.styled';
 
-interface BurgerPropsInterface {
-  onCklick: React.MouseEventHandler<HTMLDivElement>;
+export interface BurgerPropsInterface {
+  onCklick?: React.MouseEventHandler<HTMLDivElement>;
   isOpen: Boolean;
 }
 

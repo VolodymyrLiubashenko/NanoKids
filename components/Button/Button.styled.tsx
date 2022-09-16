@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-export const StyledButton = styled.button`
+export interface StyledButtonPropsInterface {
+  main?: Boolean;
+}
+
+export const StyledButton = styled.button<StyledButtonPropsInterface>`
   padding: 15px 5px;
   border-radius: 5px;
   border: #ffffff solid 2px;
-  background: transparent;
+  background: ${({main}) => (main ? 'green' : 'transparent')};
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;

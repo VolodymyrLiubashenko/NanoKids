@@ -1,15 +1,25 @@
 import {motion} from 'framer-motion';
 import React from 'react';
-import {StyledButton, StyledLinkButton} from './Button.styled';
+import {
+  StyledButton,
+  StyledLinkButton,
+  StyledButtonPropsInterface,
+} from './Button.styled';
 
-interface ButtonPropsInterface {
+export interface ButtonPropsInterface extends StyledButtonPropsInterface {
   title: string;
+  type?: 'submit' | 'button';
   ref?: React.Ref<HTMLButtonElement> | undefined;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }
 
 const Button: React.FC<ButtonPropsInterface> = React.forwardRef(
-  function createButton({title}, ref) {
-    return <StyledButton ref={ref}>{title}</StyledButton>;
+  function createButton({title, main, type, onClick}, ref) {
+    return (
+      <StyledButton onClick={onClick} type={type} main={main} ref={ref}>
+        {title}
+      </StyledButton>
+    );
   }
 );
 

@@ -25,8 +25,9 @@ const MainMenu: React.FC<MainMenuPropsInterface> = ({list, isOpen}) => {
           <ul>
             {list.map((el, i) => (
               <motion.li
+                custom={i}
                 variants={listItemsVarints}
-                animate={listItemsVarints.open(i)}
+                animate={'open'}
                 initial={'close'}
                 exit={'close'}
                 key={el}
