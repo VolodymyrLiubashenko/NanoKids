@@ -9,10 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "file-loader": "^6.2.0",
+    "formik": "^2.2.9",
+    "framer-motion": "^7.3.5",
     "next": "12.3.0",
+    "next-videos": "^1.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
     "@types/node": "18.7.18",
