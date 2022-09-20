@@ -24,7 +24,7 @@ const HomePage: React.FC<HomePagePropsInterface> = ({isOpen, setIsOpen}) => {
         variants={variants}
         onClick={toggleContactForm}
       />
-      <VideoComponent src="/video/bgVideo.MOV" />
+      <VideoComponent src="/video/file.mp4" />
     </Container>
   );
 };
