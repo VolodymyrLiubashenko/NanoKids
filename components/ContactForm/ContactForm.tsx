@@ -33,11 +33,14 @@ const sent = async (
   setStatus: (status?: any) => void
 ) => {
   try {
-    const res = await fetch('http://localhost:3000/api/contact-form', {
-      method: 'POST',
-      body: JSON.stringify(values),
-      headers: {'Content-type': 'aplication/json'},
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASEURL}/api/contact-form`,
+      {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {'Content-type': 'aplication/json'},
+      }
+    );
     setStatus(res.ok);
   } catch (error) {}
 };
@@ -48,7 +51,6 @@ const ContactForm: React.FC<
   const toggleContactForm = () => {
     setIsOpen(!isOpen);
   };
-
   return (
     <AnimatePresence>
       {isOpen && (
