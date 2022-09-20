@@ -6,10 +6,13 @@ import {StyledFooter} from './Footer.styled';
 interface FooterPropsInterface {}
 
 const contacts = [
-  {name: 'viber', href: 'tel:+380131226'},
-  {name: 'telegram', href: 'https://t.me/nanokidsbest'},
+  {
+    name: 'viber',
+    href: `viber://chat?number=%2B${process.env.NEXT_PUBLIC_VIBER}`,
+  },
+  {name: 'telegram', href: `https://t.me/${process.env.NEXT_PUBLIC_TELEGRAM}`},
   {name: 'instagram', href: 'https://www.instagram.com/nanokids_odessa/'},
-  {name: 'phone', href: 'tel:+380131226'},
+  {name: 'phone', href: `tel:${process.env.NEXT_PUBLIC_PHONE}`},
 ];
 
 const Footer: React.FC<FooterPropsInterface> = () => {
@@ -19,6 +22,7 @@ const Footer: React.FC<FooterPropsInterface> = () => {
         {contacts.map((el) => (
           <li key={el.name}>
             <CustomLink href={el.href}>
+              test
               <Image
                 src={`/images/${el.name}.svg`}
                 width={30}
