@@ -6,6 +6,7 @@ export const StyledBurger = styled(motion.div)<BurgerPropsInterface>`
   position: relative;
   width: 24px;
   height: 16px;
+  cursor: pointer;
   z-index: 3;
   &:before,
   span,
