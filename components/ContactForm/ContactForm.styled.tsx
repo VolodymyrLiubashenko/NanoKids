@@ -26,6 +26,14 @@ export const StyledForm = styled(motion(Form))`
   }
 `;
 
+export const StyledFormMessage = styled.span`
+  display: block;
+  color: #1afb06;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+`;
+
 export const StyledFormWrapper = styled(motion.div)`
   position: absolute;
   top: 0;

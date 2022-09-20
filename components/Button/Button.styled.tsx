@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export interface StyledButtonPropsInterface {
   main?: Boolean;
+  disabled?: boolean & Boolean;
 }
 
 export const StyledButton = styled.button<StyledButtonPropsInterface>`
@@ -12,9 +13,11 @@ export const StyledButton = styled.button<StyledButtonPropsInterface>`
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
+  opacity: ${({disabled}) => (disabled ? 0.3 : 1)};
 `;
 
 export const StyledLinkButton = styled.button`
+  display: block;
   background: transparent;
   color: #ffffff;
   font-size: 14px;

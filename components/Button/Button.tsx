@@ -14,9 +14,15 @@ export interface ButtonPropsInterface extends StyledButtonPropsInterface {
 }
 
 const Button: React.FC<ButtonPropsInterface> = React.forwardRef(
-  function createButton({title, main, type, onClick}, ref) {
+  function createButton({title, main, type, onClick, disabled}, ref) {
     return (
-      <StyledButton onClick={onClick} type={type} main={main} ref={ref}>
+      <StyledButton
+        onClick={onClick}
+        type={type}
+        main={main}
+        ref={ref}
+        disabled={disabled}
+      >
         {title}
       </StyledButton>
     );
