@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
   position: relative;
+  background: red;
   width: 100%;
   height: 65px;
   padding: 10px 20px;
