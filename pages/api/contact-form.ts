@@ -6,20 +6,21 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const {parrentName, childAge, phoneNumber} = JSON.parse(req.body);
-
+  const password = process.env.EMAIL_SENT_PASSWORD;
+  const email = process.env.EMAIL_ADRESS;
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-      user: process.env.EMAIL_ADRESS,
-      pass: process.env.EMAIL_SENT_PASSWORD,
+      user: email,
+      pass: password,
     },
   });
   try {
     await transporter.sendMail({
-      from: process.env.EMAIL_ADRESS,
-      to: process.env.EMAIL_ADRESS,
+      from: email,
+      to: email,
       subject: 'Testing email',
       html: `<p style="color:red">Hello, dear Yaroslav!!!</p>
     <p>My name is ${parrentName}</p>
