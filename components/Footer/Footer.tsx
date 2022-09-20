@@ -8,7 +8,6 @@ const contacts = ['viber', 'telegram', 'instagram', 'phone'];
 const Footer: React.FC<FooterPropsInterface> = () => {
   return (
     <StyledFooter>
-      {/* <h2>{"Зв'язатися з нами"}</h2> */}
       <ul>
         {contacts.map((el) => (
           <li key={el}>

@@ -6,10 +6,12 @@ const FormInput: React.FC<InputPropsInterface> = ({
   label,
   placeholder,
   id,
+  type,
 }) => {
-  const [field] = useField(name);
+  const [field, meta, helpers] = useField(name);
   const {name: fieldName, value, onChange} = field;
-  console.log('value: ', value);
+  const {touched, error} = meta;
+  const {setTouched} = helpers;
 
   return (
     <Input
@@ -17,8 +19,13 @@ const FormInput: React.FC<InputPropsInterface> = ({
       placeholder={placeholder}
       label={label}
       name={fieldName}
-      onChange={onChange}
       value={value}
+      type={type}
+      error={touched && error}
+      onBlur={() => {
+        setTouched(true, true);
+      }}
+      onChange={onChange}
     />
   );
 };
