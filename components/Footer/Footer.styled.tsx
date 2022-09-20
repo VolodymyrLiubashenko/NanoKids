@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
+  width: 100%;
+  height: 65px;
   padding: 10px 20px;
-  h2 {
-    color: #ffffff;
-    font-weight: 700;
-    text-align: right;
-  }
   ul {
     display: flex;
     justify-content: flex-end;
