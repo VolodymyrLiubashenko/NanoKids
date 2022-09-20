@@ -6,13 +6,13 @@ export const StyledNavigation = styled(motion.nav)`
   top: 0;
   left: 100%;
   bottom: 0;
-  overflow: auto;
   width: 70%;
   padding: 70px 50px 25px 25px;
   background: #000000;
   flex: 0 0 70%;
   opacity: 0.85;
   z-index: 2;
+  overflow: auto;
   ul {
     display: flex;
     flex-direction: column;

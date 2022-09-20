@@ -3,9 +3,11 @@ import {createGlobalStyle} from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   #__next
 {
+  position:relative;
   width: 100%;
   height: 100%;
   overflow: auto;
+  
 }
 
 * {
