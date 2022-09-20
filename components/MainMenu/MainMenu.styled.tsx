@@ -2,10 +2,11 @@ import {motion} from 'framer-motion';
 import styled from 'styled-components';
 
 export const StyledNavigation = styled(motion.nav)`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 100%;
-  height: 100vh;
+  bottom: 0;
+  overflow: auto;
   width: 70%;
   padding: 70px 50px 25px 25px;
   background: #000000;

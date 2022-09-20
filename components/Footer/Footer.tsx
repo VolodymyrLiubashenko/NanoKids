@@ -19,7 +19,6 @@ const Footer: React.FC = () => {
         {contacts.map((el) => (
           <li key={el.name}>
             <CustomLink href={el.href}>
-              test
               <Image
                 src={`/images/${el.name}.svg`}
                 width={30}
