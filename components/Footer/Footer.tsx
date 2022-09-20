@@ -1,9 +1,6 @@
-import {StyledLinkButton} from 'components/Button/Button.styled';
 import CustomLink from 'components/Link/Link';
 import Image from 'next/image';
 import {StyledFooter} from './Footer.styled';
-
-interface FooterPropsInterface {}
 
 const contacts = [
   {
@@ -15,7 +12,7 @@ const contacts = [
   {name: 'phone', href: `tel:${process.env.NEXT_PUBLIC_PHONE}`},
 ];
 
-const Footer: React.FC<FooterPropsInterface> = () => {
+const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <ul>
