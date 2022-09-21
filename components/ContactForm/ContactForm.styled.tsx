@@ -3,6 +3,9 @@ import {Form} from 'formik';
 import {motion} from 'framer-motion';
 
 export const StyledForm = styled(motion(Form))`
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
   width: 100%;
   max-width: 500px;
   padding: 30px 20px;
@@ -34,13 +37,20 @@ export const StyledFormWrapper = styled(motion.div)`
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   min-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   background: #000000;
   opacity: 0.9;
+  overflow: auto;
   z-index: 9;
+  &::before {
+    height: 100%;
+    min-height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+  }
 `;
 
 export const variants = {
