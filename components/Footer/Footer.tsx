@@ -8,7 +8,7 @@ const contacts = [
     href: `viber://chat?number=%2B${process.env.NEXT_PUBLIC_VIBER}`,
   },
   {name: 'telegram', href: `https://t.me/${process.env.NEXT_PUBLIC_TELEGRAM}`},
-  {name: 'instagram', href: 'https://www.instagram.com/nanokids_odessa/'},
+  {name: 'instagram', href: 'https://www.instagram.com/nanokids.odessa/'},
   {name: 'phone', href: `tel:${process.env.NEXT_PUBLIC_PHONE}`},
 ];
 
@@ -19,7 +19,6 @@ const Footer: React.FC = () => {
         {contacts.map((el) => (
           <li key={el.name}>
             <CustomLink href={el.href}>
-              test
               <Image
                 src={`/images/${el.name}.svg`}
                 width={30}
