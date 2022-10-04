@@ -1,32 +1,22 @@
-import {useState} from 'react';
-import Burger from 'components/Burger/Burger';
-import MainMenu from 'components/MainMenu/MainMenu';
-import {StyledHeader, StyledFlexHeaderContainer} from './Header.styled';
+import Logo from './components/Logo/Logo';
+import NavigationMenu from './components/NavigationMenu/NavigationMenu';
+import SocialMedia from './components/SocialMedia/SocialMedia';
+import {
+  StyledHeader,
+  StyledFlexHeaderContainer,
+  NavigationContainer,
+} from './Header.styled';
 
-const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleToggleBurger = () => {
-    setIsOpen(!isOpen);
-  };
+const Header: React.FC = () => {
   return (
     <StyledHeader>
       <StyledFlexHeaderContainer>
-        <Burger onCklick={handleToggleBurger} isOpen={isOpen} />
+        <Logo />
+        <NavigationContainer>
+          <SocialMedia />
+          <NavigationMenu />
+        </NavigationContainer>
       </StyledFlexHeaderContainer>
-      <MainMenu
-        isOpen={isOpen}
-        list={[
-          'Футбольна Школа "Nanokids"',
-          'Тренування для дітей від 1.8років',
-          'Команди 2018-2013 років народження',
-          'Інфраструктура',
-          'Світилни',
-          'Досягнення',
-          'Тренери',
-          'Контакти',
-        ]}
-      />
     </StyledHeader>
   );
 };

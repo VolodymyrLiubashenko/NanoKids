@@ -1,22 +1,32 @@
 import styled from 'styled-components';
+import variables from 'styles/variables';
+
+const {main, light, mainLight} = variables.colors;
 
 export const StyledHeader = styled.header`
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-  padding: 0 20px;
+  background: ${main};
+  &:after {
+    content: '';
+    display: block;
+    height: 10px;
+    background: linear-gradient(
+      90deg,
+      #06e98b 36%,
+      ${mainLight} 78%,
+      ${light} 100%
+    );
+  }
 `;
 
 export const StyledFlexHeaderContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
   width: 100%;
 `;
 
-export const StyledLogo = styled.div`
-  font-weight: 700;
-  color: #ffffff;
+export const NavigationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
 `;

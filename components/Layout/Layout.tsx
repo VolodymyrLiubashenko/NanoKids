@@ -1,22 +1,19 @@
 import Header from 'components/Header/Header';
-import Footer from 'components/Footer/Footer';
 import {Wrapper} from './Layout.styled';
-import ContactForm from 'components/ContactForm/ContactForm';
+import Footer from 'components/Footer/Footer';
+import ModalWindow from 'components/ModalWindow/ModalWindow';
+import News from 'components/News/News';
 
 interface LayoutPropsInterface {
   children: React.ReactNode;
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Layout: React.FC<LayoutPropsInterface> = ({
-  children,
-  isOpen,
-  setIsOpen,
-}) => {
+const Layout: React.FC<LayoutPropsInterface> = ({children}) => {
   return (
     <Wrapper>
-      <ContactForm isOpen={isOpen} setIsOpen={setIsOpen} />
+      <ModalWindow>
+        <News />
+      </ModalWindow>
       <Header />
       <main>{children}</main>
       <Footer />

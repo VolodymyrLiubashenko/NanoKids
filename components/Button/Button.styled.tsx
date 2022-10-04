@@ -6,10 +6,13 @@ export interface StyledButtonPropsInterface {
 }
 
 export const StyledButton = styled.button<StyledButtonPropsInterface>`
+  display: flex;
+  justify-content: center;
+
   padding: 15px 5px;
   border-radius: 5px;
   border: #ffffff solid 2px;
-  background: ${({main}) => (main ? 'green' : 'transparent')};
+  background-color: ${({main}) => (main ? '#07c01c' : 'transparent')};
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
