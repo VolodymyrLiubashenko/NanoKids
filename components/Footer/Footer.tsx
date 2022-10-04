@@ -1,34 +1,28 @@
-import CustomLink from 'components/Link/Link';
-import Image from 'next/image';
-import {StyledFooter} from './Footer.styled';
-
-const contacts = [
-  {
-    name: 'viber',
-    href: `viber://chat?number=%2B${process.env.NEXT_PUBLIC_VIBER}`,
-  },
-  {name: 'telegram', href: `https://t.me/${process.env.NEXT_PUBLIC_TELEGRAM}`},
-  {name: 'instagram', href: 'https://www.instagram.com/nanokids.odessa/'},
-  {name: 'phone', href: `tel:${process.env.NEXT_PUBLIC_PHONE}`},
-];
+import {
+  StyledFooter,
+  StyledFooterContainer,
+  StyledSocialMediaRow,
+} from './Footer.styled';
+import SocialMediaItem from './SocialMediaItem/SocialMediaItem';
+import socialMedia from 'constants/socialMediaList';
 
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
-      <ul>
-        {contacts.map((el) => (
-          <li key={el.name}>
-            <CustomLink href={el.href}>
-              <Image
-                src={`/images/${el.name}.svg`}
-                width={30}
-                height={30}
-                alt={el.name}
-              />
-            </CustomLink>
-          </li>
-        ))}
-      </ul>
+      <StyledFooterContainer>
+        <h3>Follow FC Nanokids on social media</h3>
+        <StyledSocialMediaRow>
+          {socialMedia.map((el) => (
+            <SocialMediaItem
+              key={el.src}
+              src={el.src}
+              $bgColor={el.bgColor}
+              title={el.title}
+              nickName={el.nickName}
+            />
+          ))}
+        </StyledSocialMediaRow>
+      </StyledFooterContainer>
     </StyledFooter>
   );
 };

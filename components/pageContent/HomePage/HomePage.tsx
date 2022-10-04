@@ -1,31 +1,31 @@
-import {MotionButton} from 'components/Button/Button';
-import VideoComponent from 'components/VideoComponent/VideoComponent';
-import {Container, variants} from './HomePage.styled';
-import {motion} from 'framer-motion';
+import CustomSlider from 'components/Slider/Slider';
+import MatchSchedule from './components/MatchSchedule/MatchSchedule';
+import NewsCarusel from './components/NewsCarusel/NewsCarusel';
+import PlayerCard from './components/PlayerCard/PlayerCard';
+import useHomePage from './useHomePage';
 
-interface HomePagePropsInterface {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const HomePage: React.FC = () => {
+  const {isFetched, players} = useHomePage();
 
-const HomePage: React.FC<HomePagePropsInterface> = ({isOpen, setIsOpen}) => {
-  const toggleContactForm = () => {
-    setIsOpen(!isOpen);
-  };
   return (
-    <Container>
-      <motion.h1 initial={'invisible'} animate={'visible'} variants={variants}>
-        Запрошуємо дітей віком від 1,8 років на безкоштовне пробне тренування!
-      </motion.h1>
-      <MotionButton
-        title="Записатися"
-        initial={'invisible'}
-        animate={'visibleButton'}
-        variants={variants}
-        onClick={toggleContactForm}
-      />
-      <VideoComponent src="/video/video.mp4" />
-    </Container>
+    <>
+      <NewsCarusel />
+      <MatchSchedule />
+      <CustomSlider slidesToShow={3}>
+        {isFetched &&
+          players.map((el) => (
+            <PlayerCard
+              key={el.tshirtNumber}
+              name={el.firstName}
+              dateOfBirth="12.12.2015"
+              $photo="kids1"
+              position={el.position}
+              tshirtNumber={el.tshirtNumber}
+              $team={el.team}
+            />
+          ))}
+      </CustomSlider>
+    </>
   );
 };
 export default HomePage;

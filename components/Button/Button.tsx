@@ -7,7 +7,7 @@ import {
 } from './Button.styled';
 
 export interface ButtonPropsInterface extends StyledButtonPropsInterface {
-  title: string;
+  title: string | React.ReactNode;
   type?: 'submit' | 'button';
   ref?: React.Ref<HTMLButtonElement> | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
@@ -31,8 +31,11 @@ const Button: React.FC<ButtonPropsInterface> = React.forwardRef(
 
 export const MotionButton = motion(Button);
 
-export const LinkButton: React.FC<ButtonPropsInterface> = ({title}) => {
-  return <StyledLinkButton>{title}</StyledLinkButton>;
+export const LinkButton: React.FC<ButtonPropsInterface> = ({
+  title,
+  onClick,
+}) => {
+  return <StyledLinkButton onClick={onClick}>{title}</StyledLinkButton>;
 };
 
 export default Button;

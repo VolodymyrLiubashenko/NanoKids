@@ -1,8 +1,11 @@
 import styled from 'styled-components';
-import {BurgerPropsInterface} from './Burger';
 import {motion} from 'framer-motion';
 
-export const StyledBurger = styled(motion.div)<BurgerPropsInterface>`
+export interface StyledBurgerPropsInterface {
+  isOpen: boolean;
+}
+
+export const StyledBurger = styled(motion.div)<StyledBurgerPropsInterface>`
   position: relative;
   width: 24px;
   height: 16px;
@@ -17,7 +20,7 @@ export const StyledBurger = styled(motion.div)<BurgerPropsInterface>`
     left: 0;
     width: 100%;
     height: 2px;
-    background: ${({isOpen}) => (isOpen ? '#ffffff' : '#ffffff')};
+    background: red;
     transform: ${({isOpen}) =>
       isOpen ? 'translate(0%, -50%) rotate(-45deg)' : null};
     transition: 0.3s;

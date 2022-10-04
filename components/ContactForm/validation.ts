@@ -1,10 +1,7 @@
 import * as yup from 'yup';
 import {TestFunction} from 'yup';
 
-const checkAge: TestFunction<string | undefined, Object> = function (
-  value,
-  context
-) {
+const checkAge: TestFunction<string | undefined, Object> = function (value) {
   if (Number(value) > 18) {
     return false;
   }

@@ -1,12 +1,17 @@
 import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  #__next
-{
+
+.lock{
+  overflow: hidden;
+}
+
+ 
+ #__next{
   position:relative;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  background:linear-gradient(90deg, #04b46b 0%, rgba(221,255,6,1) 51%, rgba(255,255,255,1) 100%);
   
 }
 
@@ -14,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   padding: 0;
   margin: 0;
   border: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Cuprum', sans-serif;;
   
 }
 
@@ -40,8 +45,10 @@ header,
 aside {
   display: block;
 }
+html{
+  scroll-behavior:smooth;
+}
 
-html,
 body {
   height: 100%;
   width: 100%;
