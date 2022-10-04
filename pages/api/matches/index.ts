@@ -7,5 +7,5 @@ export default async function handleGetMatches(
 ) {
   const rawData = fs.readFileSync('db/matches.json', 'utf8');
   const matches = JSON.parse(rawData);
-  res.send(matches);
+  res.status(200).json(matches);
 }
