@@ -68,7 +68,7 @@ export default async function handleGetMatches(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const rawData = fs.readFileSync('db/matches.json', 'utf8');
-  const matches = JSON.parse(rawData);
+  // const rawData = fs.readFileSync('db/matches.json', 'utf8');
+  // const matches = JSON.parse(rawData);
   res.json(test);
 }
