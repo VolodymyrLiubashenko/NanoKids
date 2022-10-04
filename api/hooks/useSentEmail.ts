@@ -1,5 +1,5 @@
 import {useMutation} from '@tanstack/react-query';
-import {initialValuesInterface} from 'components/ContactForm/ContactForm';
+import {InitialValuesInterface} from 'components/ContactForm/ContactForm';
 import sentEmailApi from 'api/sentEmailApi';
 
 const useSentEmail = () => {
@@ -7,7 +7,7 @@ const useSentEmail = () => {
     data,
     mutate: sent,
     isLoading,
-  } = useMutation((values: initialValuesInterface) =>
+  } = useMutation((values: InitialValuesInterface) =>
     sentEmailApi.sent(values)
   );
   return {data, sent, isLoading};
