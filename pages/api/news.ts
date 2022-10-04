@@ -8,5 +8,5 @@ export default async function getNews(
   const rawData = fs.readFileSync('db/news.json', 'utf8');
   const news = JSON.parse(rawData);
 
-  res.send(news);
+  res.json(news);
 }

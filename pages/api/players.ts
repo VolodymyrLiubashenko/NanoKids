@@ -7,5 +7,5 @@ export default async function handleGetPlayers(
 ) {
   let rawdata = fs.readFileSync('db/players.json', 'utf8');
   const result = JSON.parse(rawdata);
-  res.send(result);
+  res.json(result);
 }
