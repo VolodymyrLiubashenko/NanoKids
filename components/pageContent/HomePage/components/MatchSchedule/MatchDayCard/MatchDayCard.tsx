@@ -1,7 +1,7 @@
 import useDate from 'hooks/useDate';
 import {MatchInterface} from 'interfaces/match';
 import Image from 'next/image';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyledCardContainer,
   StyledMatchDate,
@@ -14,12 +14,29 @@ interface MatchDayCardPropsInterface {
   matchDayOptions: MatchInterface[];
 }
 
+const initialMatchDyOptions: MatchInterface[] = [
+  {
+    date: new Date(),
+    firstTeam: {logo: '', name: ''},
+    secondTeam: {logo: '', name: ''},
+    stadium: '',
+    team: '',
+    time: '',
+    matchResult: '',
+  },
+];
+
 const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
   matchDayOptions,
 }) => {
-  const {formatDate} = useDate();
+  const [state, setState] = useState(initialMatchDyOptions);
 
-  const date = matchDayOptions[0].date;
+  useEffect(() => {
+    setState(matchDayOptions);
+  }, [matchDayOptions]);
+
+  const {formatDate} = useDate();
+  const date = state[0].date;
   const month = formatDate(date, 'MMMM');
   const weekDay = formatDate(date, 'EEEE');
   const day = formatDate(date, 'dd');
@@ -30,13 +47,14 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
         <StyledMatchDate>
           <span>{day}</span>
           <p>
-            <span>{weekDay}</span> <br />
+            <span>{weekDay}</span>
+            <br />
             {month}
           </p>
         </StyledMatchDate>
       </StyledCardHeader>
-      {matchDayOptions.map((el, i) => (
-        <React.Fragment key={i}>
+      {state.map((el, i) => (
+        <React.Fragment key={el.firstTeam.name + i}>
           <StyledMatchInfo>
             <p>
               <Image
@@ -46,7 +64,6 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
                 alt=""
               />
             </p>
-
             <p>{el.matchResult || el.time}</p>
             <p>
               <Image
@@ -62,7 +79,7 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
               <p>{el.secondTeam.name}</p>
             </div>
           </StyledMatchInfo>
-          <StyledMatchLocation>{el.stadium} </StyledMatchLocation>
+          <StyledMatchLocation>{el.stadium}</StyledMatchLocation>
         </React.Fragment>
       ))}
     </StyledCardContainer>

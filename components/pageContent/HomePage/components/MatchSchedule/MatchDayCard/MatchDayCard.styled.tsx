@@ -94,7 +94,7 @@ export const StyledMatchInfo = styled.div`
   }
 `;
 
-export const StyledMatchLocation = styled.p`
+export const StyledMatchLocation = styled.div`
   margin-top: 20px;
   padding-top: 10px;
   border-top: 1px solid #cccccc;
