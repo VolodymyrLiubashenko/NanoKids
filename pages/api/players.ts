@@ -5,7 +5,8 @@ export default async function handleGetPlayers(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  let rawdata = fs.readFileSync('db/players.json', 'utf8');
-  const result = JSON.parse(rawdata);
-  res.json(result);
+  fs.readFile('db/players.json', async (err, data) => {
+    const result = await JSON.parse(data);
+    res.json(result);
+  });
 }
