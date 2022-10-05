@@ -5,8 +5,8 @@ export default async function handleGetNews(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  //   const rawData = await fs.readFile('db/players.json', 'utf8');
-  //   const players = await JSON.parse(rawData);
+  const rawData = await fs.readFile('./db/players.json', 'utf8');
+  const players = await JSON.parse(rawData);
 
-  res.json({test: 'test'});
+  res.json(players);
 }
