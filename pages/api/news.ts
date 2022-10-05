@@ -56,8 +56,8 @@ export default async function getNews(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  // const rawData = await fs.readFile('db/news.json', 'utf8');
-  // const news = await JSON.parse(rawData);
+  const rawData = await fs.readFile('db/news.json', 'utf8');
+  const news = await JSON.parse(rawData);
 
-  res.json(news1);
+  res.json(news);
 }
