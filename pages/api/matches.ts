@@ -1,4 +1,4 @@
-import type {NextApiRequest, NextApiResponse} from 'next';
+import {NextApiRequest, NextApiResponse} from 'next';
 import fs from 'fs/promises';
 
 export default async function handleGetMatches(
@@ -7,5 +7,6 @@ export default async function handleGetMatches(
 ) {
   const rawData = await fs.readFile('db/matches.json', 'utf8');
   const matches = await JSON.parse(rawData);
+
   res.json(matches);
 }

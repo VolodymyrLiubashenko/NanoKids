@@ -1,4 +1,4 @@
-import type {NextApiRequest, NextApiResponse} from 'next';
+import {NextApiRequest, NextApiResponse} from 'next';
 import fs from 'fs/promises';
 
 export default async function handleGetPlayers(

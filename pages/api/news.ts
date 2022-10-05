@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import fs from 'fs/promises';
 
-export default async function getNews(
+export default async function handleGetNews(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
