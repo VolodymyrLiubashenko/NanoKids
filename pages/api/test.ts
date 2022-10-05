@@ -8,5 +8,5 @@ export default async function handleGetNews(
   const rawData = await fs.readFile('db/players.json', 'utf8');
   const players = await JSON.parse(rawData);
 
-  res.json(players);
+  res.json({test: 'test'});
 }
