@@ -1,12 +1,11 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
-import fs from 'fs';
+import fs from 'fs/promises';
 
 export default async function handleGetPlayers(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  fs.readFile('db/players.json', async (err, data) => {
-    const result = await JSON.parse(String(data));
-    res.json(result);
-  });
+  const rawData = await fs.readFile('db/players.json', 'utf8');
+  const result = await JSON.parse(rawData);
+  res.json(result);
 }
