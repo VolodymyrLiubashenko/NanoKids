@@ -6,7 +6,7 @@ import {
   variants,
 } from './NavigationItem.styled';
 import {AnimatePresence} from 'framer-motion';
-import {MenuItemInterface} from 'constants/menuList';
+import {MenuItemInterface, SubmenuInterface} from 'constants/menuList';
 import {useState} from 'react';
 import useRouters from 'routes/useRouters';
 
@@ -23,8 +23,22 @@ const NavigationItem: React.FC<NavigationItemPropsInterface> = ({
 }) => {
   const {addQueryParams} = useRouters();
   const [isOpen, setIsOpen] = useState(false);
+
+  type subMenuHandleClickInterface = (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    el: SubmenuInterface
+  ) => void;
+
+  const subMenuHandleClick: subMenuHandleClickInterface = (e, el) => {
+    e.stopPropagation();
+    addQueryParams({team: el.query});
+    setIsOpen(false);
+  };
   return (
     <StyledNavigationItem
+      onClick={() => {
+        setIsOpen(true);
+      }}
       onHoverStart={() => {
         setActive(true);
         setIsOpen(true);
@@ -48,13 +62,11 @@ const NavigationItem: React.FC<NavigationItemPropsInterface> = ({
             exit={'subMenuInitial'}
           >
             <StyledTriangle />
-            {item.subMenu.map((el, i) => (
+            {item.subMenu.map((el) => (
               <StyledSubMenuItem
                 key={el.title}
                 variants={variants}
-                onClick={() => {
-                  addQueryParams({team: el.query});
-                }}
+                onClick={(e) => subMenuHandleClick(e, el)}
               >
                 {el.title}
               </StyledSubMenuItem>

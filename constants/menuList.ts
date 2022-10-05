@@ -1,4 +1,4 @@
-interface SubmenuInterface {
+export interface SubmenuInterface {
   title: string;
   query: string;
 }
