@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const StyledCardContainer = styled.div`
   flex: 1 0 auto;
-  max-width: 700px;
-  margin: 10px auto 0;
   padding: 0 0 20px;
   background: #ffffff;
   border: 1px solid black;
+  @media screen and (min-width: 800px) {
+    max-width: 700px;
+    margin: 10px auto 0;
+  }
 `;
 
 export const StyledCardHeader = styled.div`
@@ -42,9 +44,12 @@ export const StyledMatchDate = styled.div`
 export const StyledMatchInfo = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 30px;
+  @media screen and (min-width: 1000px) {
+    justify-content: space-around;
+  }
 
   & > p:nth-child(2) {
     position: absolute;
@@ -60,15 +65,18 @@ export const StyledMatchInfo = styled.div`
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Passion One', cursive;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: 700;
+    @media screen and (min-width: 800px) {
+      font-size: 50px;
+    }
   }
   & > div {
     position: absolute;
     bottom: 0;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: calc(100% - 60px);
     span {
       position: absolute;
       top: 50%;

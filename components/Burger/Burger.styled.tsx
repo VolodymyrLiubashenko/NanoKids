@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 
-export interface StyledBurgerPropsInterface {
-  isOpen: boolean;
-}
-
-export const StyledBurger = styled(motion.div)<StyledBurgerPropsInterface>`
-  position: relative;
+export const StyledBurger = styled(motion.div)`
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  translate: 0% -50%;
   width: 24px;
   height: 16px;
   cursor: pointer;
@@ -16,23 +15,18 @@ export const StyledBurger = styled(motion.div)<StyledBurgerPropsInterface>`
   &:after {
     content: '';
     position: absolute;
-    top: ${({isOpen}) => (isOpen ? '50%' : 0)};
+    top: 0;
     left: 0;
     width: 100%;
     height: 2px;
-    background: red;
-    transform: ${({isOpen}) =>
-      isOpen ? 'translate(0%, -50%) rotate(-45deg)' : null};
-    transition: 0.3s;
+    background: #ffffff;
   }
   &:after {
-    top: ${({isOpen}) => (isOpen ? '50%' : '100%')};
-    transform: ${({isOpen}) =>
-      isOpen ? 'translate(0%, -50%) rotate(45deg)' : 'translate(0%, -100%)'};
+    top: 100%;
   }
   span {
-    width: ${({isOpen}) => (isOpen ? 0 : '100%')};
+    width: 100%;
     top: 50%;
-    transform: translate(0%, -50%);
+    translate: 0%, -50%;
   }
 `;

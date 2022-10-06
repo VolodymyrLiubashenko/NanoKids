@@ -18,9 +18,11 @@ const CustomSlider: React.FC<Settings> = ({
   prevArrow = <PrevArrow />,
   appendDots = (dots) => <AppendDots dots={dots} />,
   customPaging = (i) => <CustomPadding />,
+  responsive,
 }) => {
   return (
     <StyledSlider
+      responsive={responsive}
       dots={dots}
       speed={speed}
       infinite={infinite}

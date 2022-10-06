@@ -40,27 +40,37 @@ export const StyledNewsContainer = styled(motion.div)`
 
 export const StyledNewsTitle = styled(motion.div)`
   h2 {
-    font-size: 50px;
+    font-size: 25px;
     font-weight: 700;
     line-height: 1.1;
     color: green;
+    @media screen and (min-width: 800px) {
+      font-size: 50px;
+    }
   }
   & > p {
     margin-top: 30px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.1;
     color: #000;
+    @media screen and (min-width: 800px) {
+      font-size: 25px;
+    }
   }
 `;
 
 export const StyledPublickDate = styled(motion.div)`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #ccc;
+  @media screen and (min-width: 800px) {
+    justify-content: space-around;
+    margin-top: 50px;
+  }
   & > div {
     span {
       font-size: 15px;
@@ -74,9 +84,12 @@ export const StyledPublickDate = styled(motion.div)`
 export const StyledNewsContent = styled(motion.div)`
   p {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 1.5;
     font-weight: 400;
+    @media screen and (min-width: 800px) {
+      font-size: 20px;
+    }
   }
 `;
 

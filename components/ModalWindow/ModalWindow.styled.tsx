@@ -6,10 +6,19 @@ export const StyledModalWrapper = styled(motion.div)`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 50;
   height: 100vh;
   background: #fff;
   overflow: auto;
+`;
+export const StyledCloseButtonMobile = styled(motion.button)`
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background: #0000005e;
+  border-radius: 50%;
+  height: 20px;
+  z-index: 55;
 `;
 
 export const StyledCloseButtton = styled(motion.button)`
@@ -57,5 +66,13 @@ export const variants = {
   closed: {
     y: 1000,
     transition: {duration: 0.5},
+  },
+  mobileCloseButtonShow: {
+    x: 0,
+    transition: {duration: 1},
+  },
+  mobileCloseButtonHide: {
+    x: 200,
+    transition: {duration: 1},
   },
 };
