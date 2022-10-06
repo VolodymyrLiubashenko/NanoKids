@@ -1,6 +1,7 @@
 import useMatchesApi from 'api/hooks/useMatchesApi';
 import useDate from 'hooks/useDate';
 import {isEmpty} from 'lodash';
+import {useEffect} from 'react';
 import useRouters from 'routes/useRouters';
 
 const useMatcheSchedule = () => {

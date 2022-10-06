@@ -12,7 +12,6 @@ import {isEmpty} from 'lodash';
 const MatchSchedule: React.FC = () => {
   const {futureMatches, previusMatches, nextMatchDate, isFetched} =
     useMatcheSchedule();
-
   return (
     <StyledScheduleWrapper>
       <StyledClubLogo>FC NANOKIDS</StyledClubLogo>
@@ -21,7 +20,9 @@ const MatchSchedule: React.FC = () => {
         {nextMatchDate && <TimeCounter date={nextMatchDate} />}
       </StyledTimerWrapper>
       <StyledMatchCardsContainer>
-        {isFetched && <MatchDayCard matchDayOptions={previusMatches} />}
+        {isFetched && !isEmpty(previusMatches) && (
+          <MatchDayCard matchDayOptions={previusMatches} />
+        )}
         {!isEmpty(futureMatches) && (
           <MatchDayCard matchDayOptions={futureMatches} />
         )}

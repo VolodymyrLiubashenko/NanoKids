@@ -8,12 +8,23 @@ export interface StyledPlayerCardInterface {
 
 export const StyledPlayerCard = styled(motion.div)<StyledPlayerCardInterface>`
   position: relative;
+  width: 350px;
+  margin: 0 auto;
   aspect-ratio: 1/1;
   background-image: ${({$photo, $team}) =>
     `linear-gradient(0deg, #000000d7 5%, rgba(255,255,255,0) 100%),url("/images/${$team}/players/${$photo}.jpg")`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  @media screen and (min-width: 600px) {
+    width: 290px;
+  }
+  @media screen and (min-width: 800px) {
+    width: 390px;
+  }
+  @media screen and (min-width: 1000px) {
+    width: initial;
+  }
 `;
 
 export const StyledPlayerInfoContainer = styled(motion.div)`

@@ -1,12 +1,12 @@
-import {StyledBurger, StyledBurgerPropsInterface} from './Burger.styled';
+import {StyledBurger} from './Burger.styled';
 
-export interface BurgerPropsInterface extends StyledBurgerPropsInterface {
+export interface BurgerPropsInterface {
   onCklick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Burger: React.FC<BurgerPropsInterface> = ({onCklick, isOpen}) => {
+const Burger: React.FC<BurgerPropsInterface> = ({onCklick}) => {
   return (
-    <StyledBurger onClick={onCklick} isOpen={isOpen}>
+    <StyledBurger onClick={onCklick}>
       <span></span>
     </StyledBurger>
   );

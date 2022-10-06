@@ -1,6 +1,8 @@
 import {useModalWindowContext} from 'context/ModalWindowProvider';
+import deviceDetector from 'deviceDetector/deviceDetector';
 import {AnimatePresence} from 'framer-motion';
 import {NewsInterface} from 'interfaces/news';
+import {useEffect, useState} from 'react';
 import useRouters from 'routes/useRouters';
 import {
   StyledCaruselItem,
@@ -24,8 +26,14 @@ const CaruselItem: React.FC<CaruseItemPropsInterfacea> = ({
   index,
   handleSetActive,
 }) => {
+  const {isMobileDevice} = deviceDetector;
+  const [isMobile, setIsMobile] = useState(false);
   const {handleOpen} = useModalWindowContext();
   const {addQueryParams} = useRouters();
+
+  useEffect(() => {
+    setIsMobile(isMobileDevice);
+  }, [isMobileDevice]);
 
   const handleOpenNews = () => {
     addQueryParams({newsId: news.id});
@@ -38,8 +46,14 @@ const CaruselItem: React.FC<CaruseItemPropsInterfacea> = ({
       <StyledCaruselItem
         onClick={handleOpenNews}
         $bgSrc={news.photo}
-        initial={index === 0 && 'onHover'}
-        animate={isActive ? 'onHover' : 'onHoverOut'}
+        initial={isMobile ? undefined : index === 0 && 'onHover'}
+        animate={
+          isMobile && isActive
+            ? 'isMobile'
+            : isActive
+            ? 'onHover'
+            : 'onHoverOut'
+        }
         onHoverStart={() => {
           handleSetActive(index);
         }}
@@ -47,14 +61,23 @@ const CaruselItem: React.FC<CaruseItemPropsInterfacea> = ({
       >
         <StyledContentWrapper>
           <StyledItemTitle
-            initial={index === 0 && 'onHoverTitle'}
-            animate={isActive ? 'onHoverTitle' : 'onHoverOutTitle'}
+            initial={
+              isMobile ? 'onHoverOutTitle' : index === 0 && 'onHoverTitle'
+            }
+            animate={
+              isMobile
+                ? 'onHoverContent'
+                : isActive
+                ? 'onHoverTitle'
+                : 'onHoverOutTitle'
+            }
             variants={contentVariants}
           >
             {news.title}
           </StyledItemTitle>
-          {isActive && (
+          {(isActive || isMobile) && (
             <StyledNewsContent
+              initial={'onHoverContent'}
               animate={'onHoverContent'}
               variants={contentVariants}
             >

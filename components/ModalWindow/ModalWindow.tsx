@@ -1,11 +1,14 @@
 import {useModalWindowContext} from 'context/ModalWindowProvider';
+import deviceDetector from 'deviceDetector/deviceDetector';
 import {AnimatePresence} from 'framer-motion';
 import useRouters from 'routes/useRouters';
 import {
   StyledModalWrapper,
   StyledCloseButtton,
+  StyledCloseButtonMobile,
   variants,
 } from './ModalWindow.styled';
+import {IoCloseOutline} from 'react-icons/io5';
 
 interface ModalNewsWindowInterface {
   children: React.ReactNode;
@@ -14,6 +17,7 @@ interface ModalNewsWindowInterface {
 const ModalNewsWindow: React.FC<ModalNewsWindowInterface> = ({children}) => {
   const {removeQueryString} = useRouters();
   const {isOpen, handleClose} = useModalWindowContext();
+  const {isMobileDevice} = deviceDetector;
 
   const handleCloseModalWindow = () => {
     removeQueryString();
@@ -30,11 +34,24 @@ const ModalNewsWindow: React.FC<ModalNewsWindowInterface> = ({children}) => {
           initial={'closed'}
           exit={'closed'}
         >
-          <StyledCloseButtton
-            onClick={handleCloseModalWindow}
-            variants={variants}
-            whileHover={'onHowerStart'}
-          />
+          {isMobileDevice && (
+            <StyledCloseButtonMobile
+              animate={'mobileCloseButtonShow'}
+              initial={'mobileCloseButtonHide'}
+              variants={variants}
+              onClick={handleCloseModalWindow}
+            >
+              <IoCloseOutline size={20} color={'#fff'} />
+            </StyledCloseButtonMobile>
+          )}
+          {!isMobileDevice && (
+            <StyledCloseButtton
+              onClick={handleCloseModalWindow}
+              variants={variants}
+              whileHover={'onHowerStart'}
+            />
+          )}
+
           {children}
         </StyledModalWrapper>
       )}

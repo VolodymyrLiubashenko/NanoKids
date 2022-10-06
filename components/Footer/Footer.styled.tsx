@@ -23,6 +23,7 @@ export const StyledFooter = styled.footer`
 `;
 
 export const StyledFooterContainer = styled.div`
+  padding: 0 10px;
   h3 {
     text-align: center;
     font-size: 15px;
@@ -34,7 +35,11 @@ export const StyledFooterContainer = styled.div`
 export const StyledSocialMediaRow = styled.ul`
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 5px;
   margin-top: 20px;
+  @media screen and (min-width: 800px) {
+    justify-content: center;
+    align-items: center;
+  }
 `;
