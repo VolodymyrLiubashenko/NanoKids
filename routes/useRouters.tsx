@@ -1,6 +1,12 @@
 import {useRouter} from 'next/router';
 import queryString from 'query-string';
 
+export interface QueryObjectInterface {
+  team?: string;
+  newsId?: string;
+  contactForm?: boolean;
+}
+
 const useRouters = () => {
   const router = useRouter();
   const {query, basePath} = router;
@@ -9,13 +15,8 @@ const useRouters = () => {
     router.push(`/${url}`);
   };
 
-  interface QueryObjectInterface {
-    team?: string;
-    newsId?: string;
-  }
-
   const removeQueryString = () => {
-    const newQuery = {...query, newsId: undefined};
+    const newQuery = {...query, newsId: undefined, contactForm: undefined};
     const querystring = queryString.stringify(newQuery);
     router.push(`${basePath}${querystring ? '?' + querystring : ''}`);
   };

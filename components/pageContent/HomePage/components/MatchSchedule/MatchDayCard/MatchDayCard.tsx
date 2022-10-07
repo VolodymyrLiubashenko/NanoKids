@@ -1,7 +1,6 @@
-import useDate from 'hooks/useDate';
 import {MatchInterface} from 'interfaces/match';
 import Image from 'next/image';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
   StyledCardContainer,
   StyledMatchDate,
@@ -9,37 +8,16 @@ import {
   StyledMatchInfo,
   StyledMatchLocation,
 } from './MatchDayCard.styled';
+import useMatchDayCard from './useMatchDayCard';
 
 interface MatchDayCardPropsInterface {
   matchDayOptions: MatchInterface[];
 }
 
-const initialMatchDyOptions: MatchInterface[] = [
-  {
-    date: new Date(),
-    firstTeam: {logo: '', name: ''},
-    secondTeam: {logo: '', name: ''},
-    stadium: '',
-    team: '',
-    time: '',
-    matchResult: '',
-  },
-];
-
 const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
   matchDayOptions,
 }) => {
-  const [state, setState] = useState(initialMatchDyOptions);
-
-  useEffect(() => {
-    setState(matchDayOptions);
-  }, [matchDayOptions]);
-
-  const {formatDate} = useDate();
-  const date = state[0].date;
-  const month = formatDate(date, 'MMMM');
-  const weekDay = formatDate(date, 'EEEE');
-  const day = formatDate(date, 'dd');
+  const {month, weekDay, day, state} = useMatchDayCard(matchDayOptions);
 
   return (
     <StyledCardContainer>

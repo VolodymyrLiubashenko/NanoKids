@@ -44,7 +44,7 @@ const ContactForm: React.FC<
       variants={variants}
       animate={'visibleForm'}
       initial={'invisibleForm'}
-      exit={'invisibleForm'}
+      exit={'visibleForm'}
     >
       {status === true ? (
         <StyledFormMessage>

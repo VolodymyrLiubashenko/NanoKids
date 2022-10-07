@@ -14,8 +14,13 @@ export const StyledScheduleWrapper = styled.div`
 `;
 
 export const StyledClubLogo = styled.p`
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
+  @media screen and (min-width: 800px) {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
   @media screen and (min-width: 1000px) {
     position: absolute;
     top: 10px;
@@ -37,9 +42,9 @@ export const StyledMatchCardsContainer = styled.div`
 
 export const StyledTimerWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 5px;
+  gap: 20px;
   @media screen and (min-width: 800px) {
     justify-content: center;
     gap: 100px;

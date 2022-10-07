@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
               key={el.src}
               src={el.src}
               $bgColor={el.bgColor}
-              title={el.title}
+              title={'FC NanoKids'}
               nickName={el.nickName}
             />
           ))}

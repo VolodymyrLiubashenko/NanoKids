@@ -25,16 +25,28 @@ const useDate = () => {
   ) => {
     return format(date, formatString);
   };
+  type DurationI = {
+    years?: string;
+    months?: string;
+    weeks?: string;
+    days?: string;
+    hours?: string;
+    minutes?: string;
+    seconds?: string;
+  };
+  type key =
+    | 'years'
+    | 'months'
+    | 'weeks'
+    | 'days'
+    | 'hours'
+    | 'minutes'
+    | 'seconds';
 
   const countTimeInterval = (endDate: Date) => {
     const now = new Date();
-    const duration: any = intervalToDuration({start: now, end: endDate});
-    for (let key in duration) {
-      if (duration[key] < 10) {
-        duration[key] = `0${duration[key]}`;
-      }
-      duration[key] = `${duration[key]}`;
-    }
+    const duration = intervalToDuration({start: now, end: endDate});
+
     return duration;
   };
 
