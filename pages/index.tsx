@@ -2,12 +2,18 @@ import type {NextPage} from 'next';
 import Layout from 'components/Layout/Layout';
 import HomePage from 'components/pageContent/HomePage/HomePage';
 import {useState} from 'react';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <HomePage />
-    </Layout>
+    <>
+      <Head>
+        <title>Футбол для дітей в Одесі | NanoKids</title>
+      </Head>
+      <Layout>
+        <HomePage />
+      </Layout>
+    </>
   );
 };
 
