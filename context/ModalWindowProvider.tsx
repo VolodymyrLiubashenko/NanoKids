@@ -1,13 +1,13 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import useRouters from 'routes/useRouters';
 
-interface initialTeamInterface {
+interface initialModalWindowStateInterface {
   isOpen: boolean;
   handleOpen: () => void;
   handleClose: () => void;
 }
 
-const initialModalWindowState: initialTeamInterface = {
+const initialModalWindowState: initialModalWindowStateInterface = {
   isOpen: false,
   handleOpen: () => {},
   handleClose: () => {},

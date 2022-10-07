@@ -6,9 +6,8 @@ import {
   variants,
 } from './NavigationItem.styled';
 import {AnimatePresence} from 'framer-motion';
-import {MenuItemInterface, SubmenuInterface} from 'constants/menuList';
-import {useState} from 'react';
-import useRouters from 'routes/useRouters';
+import {MenuItemInterface} from 'constants/menuList';
+import useNavigationItem from './useNavigationItem';
 
 interface NavigationItemPropsInterface {
   item: MenuItemInterface;
@@ -21,31 +20,24 @@ const NavigationItem: React.FC<NavigationItemPropsInterface> = ({
   isActive,
   setActive,
 }) => {
-  const {addQueryParams} = useRouters();
-  const [isOpen, setIsOpen] = useState(false);
+  const {
+    isSubMenuOpen,
+    closeSubMenu,
+    menuHandleClick,
+    subMenuHandleClick,
+    openSubMenu,
+  } = useNavigationItem(item);
 
-  type subMenuHandleClickInterface = (
-    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    el: SubmenuInterface
-  ) => void;
-
-  const subMenuHandleClick: subMenuHandleClickInterface = (e, el) => {
-    e.stopPropagation();
-    addQueryParams({team: el.query});
-    setIsOpen(false);
-  };
   return (
     <StyledNavigationItem
-      onClick={() => {
-        setIsOpen(true);
-      }}
+      onClick={menuHandleClick}
       onHoverStart={() => {
         setActive(true);
-        setIsOpen(true);
+        openSubMenu();
       }}
       onHoverEnd={() => {
         setActive(false);
-        setIsOpen(false);
+        closeSubMenu();
       }}
       variants={variants}
       whileHover={isActive ? 'onHover' : 'passiveItem'}
@@ -54,7 +46,7 @@ const NavigationItem: React.FC<NavigationItemPropsInterface> = ({
     >
       {item.name}
       <AnimatePresence>
-        {isOpen && item.subMenu && (
+        {isSubMenuOpen && item.subMenu && (
           <StyledSubMenu
             variants={variants}
             initial={'subMenuInitial'}
