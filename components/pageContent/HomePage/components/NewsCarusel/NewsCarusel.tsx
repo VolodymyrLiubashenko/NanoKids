@@ -5,6 +5,7 @@ import {StyledCaruselContainer} from './NewsCarusel.styled';
 
 const NewsCarusel: React.FC = () => {
   const {news} = useNewsContext();
+  console.log('news: ', news);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const handleSetActive = (i: number) => {
