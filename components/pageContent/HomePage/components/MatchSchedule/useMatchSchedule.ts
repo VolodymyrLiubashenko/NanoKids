@@ -9,7 +9,7 @@ const useMatcheSchedule = () => {
     query.team = query.team[0];
   }
   const {isEqualDates} = useDate();
-  const {matches, isFetched} = useMatchesApi(query.team);
+  const {matches, isFetched} = useMatchesApi('firstTeam');
 
   const findNextMatchDate = () => {
     const dates = matches.filter((el) => el.date > new Date());
