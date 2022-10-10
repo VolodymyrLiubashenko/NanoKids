@@ -28,23 +28,6 @@ const useDate = () => {
   ) => {
     return format(date, formatString);
   };
-  type DurationI = {
-    years?: string;
-    months?: string;
-    weeks?: string;
-    days?: string;
-    hours?: string;
-    minutes?: string;
-    seconds?: string;
-  };
-  type key =
-    | 'years'
-    | 'months'
-    | 'weeks'
-    | 'days'
-    | 'hours'
-    | 'minutes'
-    | 'seconds';
 
   const countTimeInterval = (endDate: Date) => {
     const now = new Date();

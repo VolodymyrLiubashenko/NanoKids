@@ -23,10 +23,10 @@ const ModalWindowProvider: React.FC<ModalWindowProviderPropsInterface> = ({
   children,
 }) => {
   const {query} = useRouters();
-  const [isOpen, setIsOpen] = useState(!!query.newsId);
-  useEffect(() => {
-    setIsOpen(!!query.newsId);
-  }, [query.newsId]);
+  const [isOpen, setIsOpen] = useState(false);
+  // useEffect(() => {
+  //   setIsOpen(!!query.newsId);
+  // }, [query.newsId]);
   const handleOpen = () => {
     setIsOpen(true);
   };
