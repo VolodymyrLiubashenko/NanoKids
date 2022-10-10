@@ -1,25 +1,27 @@
+import {players} from 'db/players';
 import {PlayerInterface} from 'interfaces/player';
 
 interface GetPlayersApiInterface {
-  getAllPlayers: () => Promise<PlayerInterface[]>;
+  getAllPlayers: () => PlayerInterface[];
 }
 
 const playersApi: GetPlayersApiInterface = {
-  getAllPlayers: async () => {
-    try {
-      const result = await fetch(
-        `${process.env.NEXT_PUBLIC_BASEURL}/api/players`,
-        {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-        }
-      );
+  getAllPlayers: () => players,
+  // getAllPlayers: async () => {
+  //   try {
+  //     const result = await fetch(
+  //       `${process.env.NEXT_PUBLIC_BASEURL}/api/players`,
+  //       {
+  //         headers: {
+  //           'Content-Type': 'application/json; charset=utf-8',
+  //         },
+  //       }
+  //     );
 
-      const players = await result.json();
-      return players;
-    } catch (error) {}
-  },
+  //     const players = await result.json();
+  //     return players;
+  //   } catch (error) {}
+  // },
 };
 
 export default playersApi;
