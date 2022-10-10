@@ -13,19 +13,8 @@ const initCurrentUser = {
 };
 
 const useNews = () => {
-  const {query} = useRouters();
-  const {news} = useNewsContext();
+  const {currentNews} = useNewsContext();
   const {formatDate} = useDate();
-  const [currentNews, setCurrentNews] = useState(initCurrentUser);
-  console.log('currentNews: ', currentNews);
-  const test = news.reduce((res, el) => {
-    return el.id === query.newsId ? el : res;
-  }, initCurrentUser);
-
-  useEffect(() => {
-    setCurrentNews(test);
-  }, [query.newsId, test]);
-
   const publishedDate = formatDate(currentNews.publishedDate, 'EEEE d MMMM');
 
   return {...currentNews, publishedDate};
