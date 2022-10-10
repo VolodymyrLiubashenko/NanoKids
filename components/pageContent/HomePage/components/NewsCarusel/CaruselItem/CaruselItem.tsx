@@ -36,6 +36,7 @@ const CaruselItem: React.FC<CaruseItemPropsInterfacea> = ({
   }, [isMobileDevice]);
 
   const handleOpenNews = () => {
+    console.log('news.id: ', news.id);
     addQueryParams({newsId: news.id});
     document.body.classList.add('lock');
     handleOpen();

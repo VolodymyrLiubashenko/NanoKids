@@ -25,14 +25,10 @@ const NewsContextProvider: React.FC<NewsContextProviderInterface> = ({
   children,
 }) => {
   const {query} = useRouters();
-  const [data, setData] = useState(newsApi.getNews());
-  const sortedData = sortBy(data, (o) => o.publishedDate);
-  const reversData = reverse(sortedData);
-  const [news, setNews] = useState([initData]);
-  useEffect(() => {
-    setNews(slice(reversData, 0, 3));
-  }, [query.newsId]);
-
+  const data = newsApi.getNews();
+  // const sortedData = sortBy(data, (o) => o.publishedDate);
+  // const news = slice(reverse(sortedData), 0, 3);
+  const news = slice(data, 0, 3);
   const currentNews = news.reduce((res, el) => {
     return el.id === query.newsId ? el : res;
   }, initData);
