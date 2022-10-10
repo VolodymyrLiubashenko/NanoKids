@@ -1,24 +1,17 @@
+import {news} from 'db/news';
+import {createDateFromString} from 'hooks/useDate';
 import {NewsInterface} from 'interfaces/news';
 
 interface NewsApiInterface {
-  getNews: () => Promise<NewsInterface[]>;
+  getNews: () => NewsInterface[];
 }
 
 const newsApi: NewsApiInterface = {
-  getNews: async () => {
-    try {
-      const result = await fetch(
-        `${process.env.NEXT_PUBLIC_BASEURL}/api/news`,
-        {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-        }
-      );
-
-      const news = await result.json();
-      return news;
-    } catch (error) {}
+  getNews: () => {
+    return news.map((el) => {
+      const publishedDate = createDateFromString(String(el.publishedDate));
+      return {...el, publishedDate};
+    });
   },
 };
 
