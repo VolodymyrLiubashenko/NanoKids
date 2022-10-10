@@ -22,11 +22,8 @@ interface ModalWindowProviderPropsInterface {
 const ModalWindowProvider: React.FC<ModalWindowProviderPropsInterface> = ({
   children,
 }) => {
-  const {query} = useRouters();
   const [isOpen, setIsOpen] = useState(false);
-  // useEffect(() => {
-  //   setIsOpen(true);
-  // }, [query.newsId]);
+
   const handleOpen = () => {
     setIsOpen(true);
   };

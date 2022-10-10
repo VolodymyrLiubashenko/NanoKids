@@ -9,8 +9,7 @@ export interface QueryObjectInterface {
 
 const useRouters = () => {
   const router = useRouter();
-  console.log('router: ', router);
-  const {query, pathname} = router;
+  const {query} = router;
 
   const goToSelectedPage = (url: string) => {
     router.push(`/${url}`);
