@@ -5,8 +5,11 @@ import isEqual from 'date-fns/isEqual';
 import setDefaultOptions from 'date-fns/setDefaultOptions';
 import {uk} from 'date-fns/locale';
 
+setDefaultOptions({locale: uk});
+export const createDateFromString = (str: string) => {
+  return new Date(str);
+};
 const useDate = () => {
-  setDefaultOptions({locale: uk});
   const createDateFromString = (str: string) => {
     return new Date(str);
   };

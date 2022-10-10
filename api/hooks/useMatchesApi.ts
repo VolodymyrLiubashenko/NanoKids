@@ -16,11 +16,6 @@ const useMatchesApi = (team: string = 'firstTeam') => {
         time: '21:00',
       },
     ],
-    onSuccess: (data) => {
-      data.map((el) => {
-        el.date = createDateFromString(String(el.date));
-      });
-    },
   });
   const matches = data.filter((el) => el.team === team);
 
