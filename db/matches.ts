@@ -1,3 +1,12 @@
+export interface RawMatchInterface {
+  date: string; //MM.DD.YYYY exp (07.05.2022)  5 july 2022
+  time: string;
+  team: string;
+  firstTeam: {name: string; logo: string};
+  secondTeam: {name: string; logo: string};
+  stadium: string;
+  matchResult?: string;
+}
 export const matches = [
   {
     team: 'secondTeam',
@@ -31,7 +40,7 @@ export const matches = [
   },
   {
     team: 'firstTeam',
-    date: '09.15.2022',
+    date: '10.15.2022',
     time: '21:00',
     firstTeam: {
       name: 'NanoKids',
