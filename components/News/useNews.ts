@@ -18,14 +18,13 @@ const useNews = () => {
   const {formatDate} = useDate();
   const [currentNews, setCurrentNews] = useState(initCurrentUser);
   console.log('currentNews: ', currentNews);
+  const test = news.reduce((res, el) => {
+    return el.id === query.newsId ? el : res;
+  }, initCurrentUser);
 
   useEffect(() => {
-    setCurrentNews(
-      news.reduce((res, el) => {
-        return el.id === '10' ? el : res;
-      }, initCurrentUser)
-    );
-  }, [query.newsId, news]);
+    setCurrentNews(test);
+  }, [query.newsId, test]);
 
   const publishedDate = formatDate(currentNews.publishedDate, 'EEEE d MMMM');
 
