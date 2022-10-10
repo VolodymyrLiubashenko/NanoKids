@@ -1,23 +1,30 @@
+import {useState, useEffect} from 'react';
 import {useNewsContext} from 'context/NewsProvider';
 import useDate from 'hooks/useDate';
 import useRouters from 'routes/useRouters';
+
+const initCurrentUser = {
+  id: '1',
+  photo: 'Yaroslav.jfif',
+  title: '',
+  subTitle: '',
+  publishedDate: new Date(),
+  body: 'string',
+};
 
 const useNews = () => {
   const {query} = useRouters();
   const {news} = useNewsContext();
   const {formatDate} = useDate();
-  const initCurrentUser = {
-    id: '1',
-    photo: 'Yaroslav.jfif',
-    title: '',
-    subTitle: '',
-    publishedDate: new Date(),
-    body: 'string',
-  };
+  const [currentNews, setCurrentNews] = useState(initCurrentUser);
 
-  const currentNews = news.reduce((res, el) => {
-    return el.id === query.newsId ? el : res;
-  }, initCurrentUser);
+  useEffect(() => {
+    setCurrentNews(
+      news.reduce((res, el) => {
+        return el.id === query.newsId ? el : res;
+      }, initCurrentUser)
+    );
+  }, [query.newsId, news]);
 
   const publishedDate = formatDate(currentNews.publishedDate, 'EEEE d MMMM');
 
