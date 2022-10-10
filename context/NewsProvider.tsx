@@ -15,7 +15,6 @@ const initData = {
 const NewsContext = createContext({
   data: [initData],
   news: [initData],
-  currentNews: initData,
 });
 
 interface NewsContextProviderInterface {
@@ -24,19 +23,13 @@ interface NewsContextProviderInterface {
 const NewsContextProvider: React.FC<NewsContextProviderInterface> = ({
   children,
 }) => {
-  const {query} = useRouters();
   const data = newsApi.getNews();
   // const sortedData = sortBy(data, (o) => o.publishedDate);
   // const news = slice(reverse(sortedData), 0, 3);
   const news = slice(data, 0, 3);
-  const currentNews = news.reduce((res, el) => {
-    return el.id === query.newsId ? el : res;
-  }, initData);
 
   return (
-    <NewsContext.Provider value={{data, news, currentNews}}>
-      {children}
-    </NewsContext.Provider>
+    <NewsContext.Provider value={{data, news}}>{children}</NewsContext.Provider>
   );
 };
 

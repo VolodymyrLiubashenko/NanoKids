@@ -13,10 +13,20 @@ const initCurrentUser = {
 };
 
 const useNews = () => {
-  const {currentNews} = useNewsContext();
+  const {query} = useRouters();
+  const {news} = useNewsContext();
   const {formatDate} = useDate();
-  const publishedDate = formatDate(currentNews.publishedDate, 'EEEE d MMMM');
+  const [currentNews, setCurrentNews] = useState(initCurrentUser);
 
+  const activeNews = news.reduce((res, el) => {
+    return el.id === query.newsId ? el : res;
+  }, initCurrentUser);
+
+  useEffect(() => {
+    setCurrentNews(activeNews);
+  }, [query.newsId, activeNews]);
+
+  const publishedDate = formatDate(currentNews.publishedDate, 'EEEE d MMMM');
   return {...currentNews, publishedDate};
 };
 
