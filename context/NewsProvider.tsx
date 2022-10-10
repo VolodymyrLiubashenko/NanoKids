@@ -1,6 +1,7 @@
 import useNewsApi from 'api/hooks/useNewsApi';
 import {useContext, createContext} from 'react';
 import {reverse, slice, sortBy} from 'lodash';
+import newsApi from 'api/newsApi';
 
 const initData = [
   {
@@ -24,7 +25,7 @@ interface NewsContextProviderInterface {
 const NewsContextProvider: React.FC<NewsContextProviderInterface> = ({
   children,
 }) => {
-  const {data} = useNewsApi();
+  const data = newsApi.getNews();
   const sortedData = sortBy(data, (o) => o.publishedDate);
 
   const news = slice(reverse(sortedData), 0, 3);
