@@ -7,7 +7,7 @@ const useNews = () => {
   const {news} = useNewsContext();
   const {formatDate} = useDate();
   const initCurrentUser = {
-    id: '',
+    id: '1',
     photo: 'Yaroslav.jfif',
     title: '',
     subTitle: '',
@@ -19,7 +19,7 @@ const useNews = () => {
     return el.id === query.newsId ? el : res;
   }, initCurrentUser);
 
-  const publishedDate = formatDate(currentNews?.publishedDate, 'EEEE d MMMM');
+  const publishedDate = formatDate(currentNews.publishedDate, 'EEEE d MMMM');
 
   return {...currentNews, publishedDate};
 };
