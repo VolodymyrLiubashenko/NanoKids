@@ -22,7 +22,7 @@ export const useMatchDayCard = (matchDayOptions: MatchInterface[]) => {
   }, [matchDayOptions]);
 
   const {formatDate} = useDate();
-  const date = state[0].date;
+  const date = state[0]?.date;
   const month = formatDate(date, 'MMMM');
   const weekDay = formatDate(date, 'EEEE');
   const day = formatDate(date, 'dd');
