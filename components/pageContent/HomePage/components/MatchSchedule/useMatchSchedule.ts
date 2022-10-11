@@ -29,6 +29,7 @@ const useMatcheSchedule = () => {
 
   const findNextMatchDate = useCallback(() => {
     const dates = matches.filter((el) => el.date > new Date());
+    console.log('dates: ', dates);
     if (isEmpty(dates)) {
       return undefined;
     }
