@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react';
-import {players} from 'db/players';
 import useRouters from 'routes/useRouters';
 import playersApi from 'api/playersApi';
 

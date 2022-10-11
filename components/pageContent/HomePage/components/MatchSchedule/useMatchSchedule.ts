@@ -1,11 +1,12 @@
 import matchesApi from 'api/matchesApi';
+import {useTeamContext} from 'context/TeamProvider';
 import useDate from 'hooks/useDate';
 import {isEmpty} from 'lodash';
 import {useCallback, useEffect, useState} from 'react';
 import useRouters from 'routes/useRouters';
 
 const useMatcheSchedule = () => {
-  const [team, setTeam] = useState('firstTeam');
+  const {team, changeTeam} = useTeamContext();
   const [nextMatchDate, setNextMatchDate] = useState<Date | undefined>(
     undefined
   );
@@ -13,15 +14,16 @@ const useMatcheSchedule = () => {
   const {isEqualDates} = useDate();
   const {getAllMatches} = matchesApi;
   const matches = getAllMatches().filter((el) => el.team === team);
+  console.log('matches: ', matches);
 
   useEffect(() => {
     console.log('query.team: ', query.team);
     if (query.team instanceof Array) {
-      setTeam(query.team[0]);
+      changeTeam(query.team[0]);
       return;
     }
     if (query.team) {
-      setTeam(query.team);
+      changeTeam(query.team);
     }
   }, [query.team]);
 
