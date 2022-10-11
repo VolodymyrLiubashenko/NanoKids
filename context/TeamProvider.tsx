@@ -1,16 +1,15 @@
-import {useRouter} from 'next/router';
 import {createContext, useContext, useEffect, useState} from 'react';
 
-type Team = 'firstTeam' | 'secondTeam';
+type Team = string;
 
 interface initialTeamInterface {
   team: Team;
-  changeTeam: (team: 'firstTeam' | 'secondTeam') => void;
+  changeTeam: (team: string) => void;
 }
 
 const initialTeam: initialTeamInterface = {
   team: 'firstTeam',
-  changeTeam: (team: 'firstTeam' | 'secondTeam') => {},
+  changeTeam: (team) => {},
 };
 
 const TeamContext = createContext(initialTeam);
@@ -24,7 +23,7 @@ const TeamContextProvider: React.FC<TeamContextProviderPropsInterface> = ({
 }) => {
   const [team, setTeam] = useState<Team>('firstTeam');
 
-  const changeTeam = (team: 'firstTeam' | 'secondTeam') => {
+  const changeTeam = (team: string) => {
     setTeam(team);
   };
   return (
