@@ -11,6 +11,7 @@ import {isEmpty} from 'lodash';
 
 const MatchSchedule: React.FC = () => {
   const {futureMatches, previusMatches, nextMatchDate} = useMatcheSchedule();
+  console.log('previusMatches: ', previusMatches);
 
   console.log('!isEmpty(previusMatches): ', !isEmpty(previusMatches));
   return (
