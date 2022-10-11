@@ -7,7 +7,7 @@ import useRouters from 'routes/useRouters';
 const useMatcheSchedule = () => {
   const [team, setTeam] = useState('firstTeam');
   const [nextMatchDate, setNextMatchDate] = useState<Date | undefined>(
-    new Date() || undefined
+    undefined
   );
   const {query} = useRouters();
   const {isEqualDates} = useDate();
