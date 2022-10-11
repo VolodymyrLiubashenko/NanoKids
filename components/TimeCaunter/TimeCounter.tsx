@@ -18,11 +18,12 @@ const TimeCounter: React.FC<TimeCounterPropsInterface> = ({
   const [timer, setTimer] = useState(countTimeInterval(new Date()));
 
   const {days, hours, minutes, seconds} = timer;
+  console.log('date: ', date);
 
   useEffect(() => {
     const timerId = setInterval(() => setTimer(timeInterval), 1000);
     return () => clearInterval(timerId);
-  });
+  }, [date]);
   return (
     <StyledTimeCounterContainer>
       <StiledTimeCounter>
