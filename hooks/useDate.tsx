@@ -7,7 +7,8 @@ import {uk} from 'date-fns/locale';
 
 setDefaultOptions({locale: uk});
 export const createDateFromString = (str: string) => {
-  return new Date(str);
+  const [month, day, year] = str.split('.');
+  return new Date(+year, +month - 1, +day);
 };
 const useDate = () => {
   const createDateFromString = (str: string) => {
