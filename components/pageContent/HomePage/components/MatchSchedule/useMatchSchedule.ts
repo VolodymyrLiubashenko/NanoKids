@@ -15,6 +15,7 @@ const useMatcheSchedule = () => {
   const matches = getAllMatches().filter((el) => el.team === team);
 
   useEffect(() => {
+    console.log('query.team: ', query.team);
     if (query.team instanceof Array) {
       setTeam(query.team[0]);
       return;
@@ -40,6 +41,7 @@ const useMatcheSchedule = () => {
   }, [team]);
 
   useEffect(() => {
+    console.log('nextMatchDateinUseEffect: ', nextMatchDate);
     setNextMatchDate(findNextMatchDate());
   }, [findNextMatchDate]);
   const PreviusMatchDate = matches.reduce((date: Date, el) => {
