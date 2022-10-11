@@ -15,7 +15,7 @@ const TimeCounter: React.FC<TimeCounterPropsInterface> = ({
 }) => {
   const {countTimeInterval} = useDate();
   const timeInterval = countTimeInterval(date);
-  const [timer, setTimer] = useState(countTimeInterval(new Date()));
+  const [timer, setTimer] = useState(timeInterval);
 
   const {days, hours, minutes, seconds} = timer;
   console.log('date: ', date);
@@ -23,7 +23,7 @@ const TimeCounter: React.FC<TimeCounterPropsInterface> = ({
   useEffect(() => {
     const timerId = setInterval(() => setTimer(timeInterval), 1000);
     return () => clearInterval(timerId);
-  }, [date]);
+  });
   return (
     <StyledTimeCounterContainer>
       <StiledTimeCounter>
