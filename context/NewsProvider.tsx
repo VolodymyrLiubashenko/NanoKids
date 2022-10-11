@@ -1,7 +1,6 @@
 import {useContext, createContext, useState, useEffect} from 'react';
 import {reverse, slice, sortBy} from 'lodash';
 import newsApi from 'api/newsApi';
-import useRouters from 'routes/useRouters';
 
 const initData = {
   id: '1',
@@ -24,9 +23,8 @@ const NewsContextProvider: React.FC<NewsContextProviderInterface> = ({
   children,
 }) => {
   const data = newsApi.getNews();
-  // const sortedData = sortBy(data, (o) => o.publishedDate);
-  // const news = slice(reverse(sortedData), 0, 3);
-  const news = slice(data, 0, 3);
+  const sortedData = sortBy(data, (o) => o.publishedDate);
+  const news = slice(reverse(sortedData), 0, 3);
 
   return (
     <NewsContext.Provider value={{data, news}}>{children}</NewsContext.Provider>

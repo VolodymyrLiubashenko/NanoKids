@@ -7,13 +7,15 @@ import {
 } from './TimeCounter.styled';
 
 interface TimeCounterPropsInterface {
-  date: Date;
+  date?: Date;
 }
 
-const TimeCounter: React.FC<TimeCounterPropsInterface> = ({date}) => {
+const TimeCounter: React.FC<TimeCounterPropsInterface> = ({
+  date = new Date(),
+}) => {
   const {countTimeInterval} = useDate();
   const timeInterval = countTimeInterval(date);
-  const [timer, setTimer] = useState(timeInterval);
+  const [timer, setTimer] = useState(countTimeInterval(new Date()));
 
   const {days, hours, minutes, seconds} = timer;
 

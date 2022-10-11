@@ -44,25 +44,24 @@ const sliderSettings = {
 };
 
 const HomePage: React.FC = () => {
-  const {isFetched, players} = useHomePage();
+  const {players} = useHomePage();
 
   return (
     <>
       <NewsCarusel />
       <MatchSchedule />
       <CustomSlider {...sliderSettings}>
-        {isFetched &&
-          players.map((el) => (
-            <PlayerCard
-              key={el.tshirtNumber}
-              name={el.firstName}
-              dateOfBirth="12.12.2015"
-              $photo="kids1"
-              position={el.position}
-              tshirtNumber={el.tshirtNumber}
-              $team={el.team}
-            />
-          ))}
+        {players.map((el) => (
+          <PlayerCard
+            key={el.tshirtNumber}
+            name={el.firstName}
+            dateOfBirth="12.12.2015"
+            $photo="kids1"
+            position={el.position}
+            tshirtNumber={el.tshirtNumber}
+            $team={el.team}
+          />
+        ))}
       </CustomSlider>
     </>
   );

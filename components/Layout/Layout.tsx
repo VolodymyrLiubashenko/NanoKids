@@ -17,9 +17,8 @@ const Layout: React.FC<LayoutPropsInterface> = ({children}) => {
     <Wrapper>
       <ModalWindow>
         <>
-          <News />
-          {/* {query.newsId && <News />} */}
-          {/* {query.contactForm && <WithContactForm />} */}
+          {query.newsId && <News />}
+          {query.contactForm && <WithContactForm />}
         </>
       </ModalWindow>
       <Header />
