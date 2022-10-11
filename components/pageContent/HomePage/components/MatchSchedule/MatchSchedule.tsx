@@ -17,7 +17,7 @@ const MatchSchedule: React.FC = () => {
       <StyledClubLogo>FC NANOKIDS</StyledClubLogo>
       <StyledTimerWrapper>
         <p>Next Match day</p>
-        {nextMatchDate && <TimeCounter date={nextMatchDate} />}
+        <TimeCounter date={nextMatchDate} />
       </StyledTimerWrapper>
       <StyledMatchCardsContainer>
         {!isEmpty(previusMatches) && (

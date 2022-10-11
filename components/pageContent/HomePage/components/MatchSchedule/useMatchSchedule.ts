@@ -39,7 +39,6 @@ const useMatcheSchedule = () => {
     return date;
   }, [team]);
 
-  // const nextMatchDate = findNextMatchDate();
   useEffect(() => {
     setNextMatchDate(findNextMatchDate());
   }, [findNextMatchDate]);
