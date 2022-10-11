@@ -20,12 +20,10 @@ const MatchSchedule: React.FC = () => {
         <TimeCounter date={nextMatchDate} />
       </StyledTimerWrapper>
       <StyledMatchCardsContainer>
-        {!isEmpty(previusMatches) && (
+        {!isEmpty(previusMatches) ? (
           <MatchDayCard matchDayOptions={previusMatches} />
-        )}
-        {!isEmpty(futureMatches) && (
-          <MatchDayCard matchDayOptions={futureMatches} />
-        )}
+        ) : null}
+        <MatchDayCard matchDayOptions={futureMatches} />
       </StyledMatchCardsContainer>
     </StyledScheduleWrapper>
   );
