@@ -1,8 +1,9 @@
-interface SocialMediaItemInterface {
+export interface SocialMediaItemInterface {
   src: string;
   title: string;
   nickName: string;
   bgColor: string;
+  urlPath: string;
 }
 
 const socialMedia: SocialMediaItemInterface[] = [
@@ -11,18 +12,21 @@ const socialMedia: SocialMediaItemInterface[] = [
     src: 'facebook',
     title: 'Facebook',
     nickName: '@nanokids',
+    urlPath: 'https://www.instagram.com/nanokids.odessa/',
   },
   {
     bgColor: '#b00',
     src: 'youtube',
     title: 'Youtube',
     nickName: '@nanokids',
+    urlPath: 'https://www.instagram.com/nanokids.odessa/',
   },
   {
     bgColor: '#55acee',
     src: 'twitter',
     title: 'Twitter',
     nickName: '@nanokids',
+    urlPath: 'https://www.instagram.com/nanokids.odessa/',
   },
   {
     bgColor:
@@ -30,12 +34,14 @@ const socialMedia: SocialMediaItemInterface[] = [
     src: 'instagram',
     title: 'Instagram',
     nickName: '@nanokids',
+    urlPath: 'https://www.instagram.com/nanokids.odessa/',
   },
   {
     bgColor: '#000',
     src: 'tiktok',
     title: 'Tiktok',
     nickName: '@nanokids',
+    urlPath: 'https://www.instagram.com/nanokids.odessa/',
   },
 ];
 

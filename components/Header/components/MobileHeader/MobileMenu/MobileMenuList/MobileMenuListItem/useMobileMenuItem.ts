@@ -27,8 +27,8 @@ const useMobileMenuItem: UseMobileMenuItem = ({
   const {handleOpenModalWindow} = useModalWindowContext();
 
   const menuItemHandleClick = () => {
-    if (item.name === signUp) {
-      addQueryParams({contactForm: true});
+    if (item.query) {
+      addQueryParams(item.query);
       handleCloseMenu();
       handleOpenModalWindow();
     }

@@ -9,7 +9,7 @@ const SocialMedia: React.FC = () => {
       <h4>Follow FC Nanokids</h4>
       <StyledSocialMediaLinks>
         {socialMedia.map((el) => (
-          <CustomLink key={el.src} href={``}>
+          <CustomLink key={el.src} href={el.urlPath}>
             <Image
               src={`/images/socialLinks/${el.src}.svg`}
               alt={`${el.src}`}

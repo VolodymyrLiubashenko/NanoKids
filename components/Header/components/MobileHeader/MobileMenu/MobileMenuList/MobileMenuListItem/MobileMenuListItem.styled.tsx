@@ -48,12 +48,6 @@ export const StyledSubMenuTitle = styled(motion.li)`
   color: #fff;
 `;
 
-export const StyledSubMenuListItem = styled(motion.li)`
-  width: 100%;
-  padding: 15px;
-  border-top: 1px solid #cccccc50;
-`;
-
 export const variants = {
   openSubMenu: (custom: number) => ({
     x: 0,
@@ -65,6 +59,4 @@ export const variants = {
     opacity: 0,
     transition: {duration: 0.3, delay: custom * 0.1},
   }),
-  openHoleMenu: {x: 0, transition: {duration: 2}},
-  closeHoleMenu: {x: -1000},
 };

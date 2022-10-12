@@ -3,38 +3,37 @@ import {
   StyledSocialMediaItem,
   StyledIcon,
   variants,
-  StyledSocialMediaItemPropsInterface,
 } from './SocialMediaItem.styled';
+import {SocialMediaItemInterface} from 'constants/socialMediaList';
+import useRouters from 'routes/useRouters';
 
-interface SocialMediaItemPropsInterface
-  extends StyledSocialMediaItemPropsInterface {
-  src: string;
-  title: string;
-  nickName: string;
+interface SocialMediaItemPropsInterface {
+  item: SocialMediaItemInterface;
 }
 
-const SocialMediaItem: React.FC<SocialMediaItemPropsInterface> = ({
-  src,
-  $bgColor,
-  title,
-  nickName,
-}) => {
+const SocialMediaItem: React.FC<SocialMediaItemPropsInterface> = ({item}) => {
+  const {goToSelectedPage} = useRouters();
+
+  const handleClick = () => {
+    goToSelectedPage(item.urlPath);
+  };
   return (
     <StyledSocialMediaItem
-      $bgColor={$bgColor}
+      $bgColor={item.bgColor}
       variants={variants}
       whileHover={'onHower'}
+      onClick={handleClick}
     >
       <StyledIcon>
         <Image
-          src={`/images/socialLinks/${src}.svg`}
-          alt={`${src}`}
+          src={`/images/socialLinks/${item.src}.svg`}
+          alt={`${item.src}`}
           width={30}
           height={30}
         />
       </StyledIcon>
-      <h6>{title}</h6>
-      <p>{nickName}</p>
+      <h6>{item.title}</h6>
+      <p>{item.nickName}</p>
     </StyledSocialMediaItem>
   );
 };
