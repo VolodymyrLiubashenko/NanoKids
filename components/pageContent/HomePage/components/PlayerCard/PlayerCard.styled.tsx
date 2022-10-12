@@ -29,11 +29,10 @@ export const StyledPlayerCard = styled(motion.div)<StyledPlayerCardInterface>`
 `;
 
 export const StyledPlayerInfoContainer = styled(motion.div)`
-  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 50%;
+  height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -46,7 +45,7 @@ export const StyledPlayerInfoContainer = styled(motion.div)`
 export const StyledBackgroundName = styled(motion.div)`
   position: absolute;
   left: 0;
-  top: 0;
+  top: 40%;
   right: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 100px;
@@ -55,7 +54,7 @@ export const StyledBackgroundName = styled(motion.div)`
   color: #ffffff;
   text-transform: uppercase;
   text-align: center;
-  opacity: 0.2;
+  opacity: 0.15;
 `;
 
 export const StyledPlayerName = styled(motion.div)`
