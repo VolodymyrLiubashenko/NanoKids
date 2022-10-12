@@ -5,7 +5,7 @@ export const StyledBurger = styled(motion.div)`
   position: absolute;
   top: 50%;
   left: 20px;
-  translate: 0% -50%;
+  transform: translate(0%, -50%);
   width: 24px;
   height: 16px;
   cursor: pointer;

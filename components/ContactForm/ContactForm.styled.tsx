@@ -8,7 +8,7 @@ const {mainDark} = variables.colors;
 export const StyledForm = styled(motion(Form))`
   position: absolute;
   left: 50%;
-  translate: -50% 0;
+  transform: translate (-50%, 0);
   display: inline-block;
   width: 100%;
   max-width: 500px;
