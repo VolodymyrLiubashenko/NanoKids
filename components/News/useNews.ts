@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {useNewsContext} from 'context/NewsProvider';
-import useDate from 'hooks/useDate';
+import {formatDate} from 'helpers/date';
 import useRouters from 'routes/useRouters';
 
 const initCurrentNews = {
@@ -15,7 +15,6 @@ const initCurrentNews = {
 const useNews = () => {
   const {query} = useRouters();
   const {news} = useNewsContext();
-  const {formatDate} = useDate();
   const [currentNews, setCurrentNews] = useState(initCurrentNews);
 
   useEffect(() => {

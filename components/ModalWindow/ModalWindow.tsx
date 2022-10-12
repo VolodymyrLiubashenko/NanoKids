@@ -16,13 +16,13 @@ interface ModalNewsWindowInterface {
 
 const ModalNewsWindow: React.FC<ModalNewsWindowInterface> = ({children}) => {
   const {removeQueryString} = useRouters();
-  const {isOpen, handleClose} = useModalWindowContext();
+  const {isOpen, handleCloseModalWindow} = useModalWindowContext();
   const {isMobileDevice} = deviceDetector;
 
-  const handleCloseModalWindow = () => {
+  const handleClose = () => {
     removeQueryString();
     document.body.classList.remove('lock');
-    handleClose();
+    handleCloseModalWindow();
   };
 
   return (
@@ -39,14 +39,14 @@ const ModalNewsWindow: React.FC<ModalNewsWindowInterface> = ({children}) => {
               animate={'mobileCloseButtonShow'}
               initial={'mobileCloseButtonHide'}
               variants={variants}
-              onClick={handleCloseModalWindow}
+              onClick={handleClose}
             >
               <IoCloseOutline size={20} color={'#fff'} />
             </StyledCloseButtonMobile>
           )}
           {!isMobileDevice && (
             <StyledCloseButtton
-              onClick={handleCloseModalWindow}
+              onClick={handleClose}
               variants={variants}
               whileHover={'onHowerStart'}
             />

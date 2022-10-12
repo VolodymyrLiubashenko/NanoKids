@@ -1,16 +1,15 @@
-import {createContext, useContext, useEffect, useState} from 'react';
-import useRouters from 'routes/useRouters';
+import {createContext, useContext, useState} from 'react';
 
 interface initialModalWindowStateInterface {
   isOpen: boolean;
-  handleOpen: () => void;
-  handleClose: () => void;
+  handleOpenModalWindow: () => void;
+  handleCloseModalWindow: () => void;
 }
 
 const initialModalWindowState: initialModalWindowStateInterface = {
   isOpen: false,
-  handleOpen: () => {},
-  handleClose: () => {},
+  handleOpenModalWindow: () => {},
+  handleCloseModalWindow: () => {},
 };
 
 const ModalWindowContext = createContext(initialModalWindowState);
@@ -24,14 +23,16 @@ const ModalWindowProvider: React.FC<ModalWindowProviderPropsInterface> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOpen = () => {
+  const handleOpenModalWindow = () => {
     setIsOpen(true);
   };
-  const handleClose = () => {
+  const handleCloseModalWindow = () => {
     setIsOpen(false);
   };
   return (
-    <ModalWindowContext.Provider value={{isOpen, handleOpen, handleClose}}>
+    <ModalWindowContext.Provider
+      value={{isOpen, handleOpenModalWindow, handleCloseModalWindow}}
+    >
       {children}
     </ModalWindowContext.Provider>
   );

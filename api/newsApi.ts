@@ -1,5 +1,5 @@
 import {news} from 'db/news';
-import {createDateFromString} from 'hooks/useDate';
+import {createDateFromString} from 'helpers/date';
 import {NewsInterface} from 'interfaces/news';
 
 interface NewsApiInterface {

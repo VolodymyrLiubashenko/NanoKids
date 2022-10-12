@@ -47,6 +47,13 @@ export const StyledMatchInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 30px;
+  p {
+    position: relative;
+    min-width: 80px;
+    @media screen and (min-width: 800px) {
+      min-width: 100px;
+    }
+  }
   @media screen and (min-width: 1000px) {
     justify-content: space-around;
   }
@@ -67,6 +74,7 @@ export const StyledMatchInfo = styled.div`
     font-family: 'Passion One', cursive;
     font-size: 30px;
     font-weight: 700;
+    text-align: center;
     @media screen and (min-width: 800px) {
       font-size: 50px;
     }
