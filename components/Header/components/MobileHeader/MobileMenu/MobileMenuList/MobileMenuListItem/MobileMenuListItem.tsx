@@ -3,10 +3,10 @@ import {AnimatePresence} from 'framer-motion';
 import {
   StyledSubMenu,
   StyledMenuListItem,
-  StyledSubMenuListItem,
   StyledSubMenuTitle,
   variants,
 } from './MobileMenuListItem.styled';
+import MobileSubMenuListItem from './MobileSubMenuListItem/MobileSubMenuListItem';
 import useMobileMenuItem from './useMobileMenuItem';
 
 interface MobileMenuListItemInterface {
@@ -24,7 +24,7 @@ const MobileMenuListItem: React.FC<MobileMenuListItemInterface> = ({
   setActiveIndex,
   handleCloseMenu,
 }) => {
-  const {menuItemHandleClick, addQueryParams} = useMobileMenuItem({
+  const {menuItemHandleClick} = useMobileMenuItem({
     index,
     handleCloseMenu,
     item,
@@ -52,20 +52,12 @@ const MobileMenuListItem: React.FC<MobileMenuListItemInterface> = ({
                   {item.name}
                 </StyledSubMenuTitle>
                 {item.subMenu.map((elem, index) => (
-                  <StyledSubMenuListItem
+                  <MobileSubMenuListItem
                     key={elem.title}
-                    custom={index + 1}
-                    animate={'openSubMenu'}
-                    initial={'closeSubMenu'}
-                    exit={'closeSubMenu'}
-                    variants={variants}
-                    onClick={() => {
-                      addQueryParams({team: elem.query});
-                      handleCloseMenu();
-                    }}
-                  >
-                    {elem.title}
-                  </StyledSubMenuListItem>
+                    handleCloseMenu={handleCloseMenu}
+                    item={elem}
+                    index={index}
+                  />
                 ))}
               </>
             )}

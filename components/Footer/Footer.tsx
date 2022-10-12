@@ -13,13 +13,7 @@ const Footer: React.FC = () => {
         <h3>Follow FC Nanokids on social media</h3>
         <StyledSocialMediaRow>
           {socialMedia.map((el) => (
-            <SocialMediaItem
-              key={el.src}
-              src={el.src}
-              $bgColor={el.bgColor}
-              title={'FC NanoKids'}
-              nickName={el.nickName}
-            />
+            <SocialMediaItem key={el.src} item={el} />
           ))}
         </StyledSocialMediaRow>
       </StyledFooterContainer>

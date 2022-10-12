@@ -25,14 +25,15 @@ const useNavigationItem = (item: MenuItemInterface) => {
   };
 
   const subMenuHandleClick: subMenuHandleClickInterface = (e, el) => {
-    e.stopPropagation();
-    addQueryParams({team: el.query});
-    closeSubMenu();
+    if (el.query) {
+      addQueryParams(el.query);
+      closeSubMenu();
+    }
   };
 
   const menuHandleClick = () => {
-    if (item.name === signUp) {
-      addQueryParams({contactForm: true});
+    if (item.query) {
+      addQueryParams(item.query);
       handleOpenModalWindow();
     }
   };
