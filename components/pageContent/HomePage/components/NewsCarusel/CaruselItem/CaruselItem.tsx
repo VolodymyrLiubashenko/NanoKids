@@ -28,7 +28,7 @@ const CaruselItem: React.FC<CaruseItemPropsInterfacea> = ({
 }) => {
   const {isMobileDevice} = deviceDetector;
   const [isMobile, setIsMobile] = useState(false);
-  const {handleOpen} = useModalWindowContext();
+  const {handleOpenModalWindow} = useModalWindowContext();
   const {addQueryParams} = useRouters();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const CaruselItem: React.FC<CaruseItemPropsInterfacea> = ({
   const handleOpenNews = () => {
     addQueryParams({newsId: news.id});
     document.body.classList.add('lock');
-    handleOpen();
+    handleOpenModalWindow();
   };
 
   return (

@@ -24,13 +24,13 @@ const useMobileMenuItem: UseMobileMenuItem = ({
   setActiveIndex,
 }) => {
   const {addQueryParams} = useRouters();
-  const {handleOpen} = useModalWindowContext();
+  const {handleOpenModalWindow} = useModalWindowContext();
 
   const menuItemHandleClick = () => {
     if (item.name === signUp) {
       addQueryParams({contactForm: true});
       handleCloseMenu();
-      handleOpen();
+      handleOpenModalWindow();
     }
     if (item.subMenu) {
       setActiveIndex(index);

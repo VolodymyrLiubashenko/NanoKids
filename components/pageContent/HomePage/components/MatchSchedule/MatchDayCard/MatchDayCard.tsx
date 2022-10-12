@@ -36,6 +36,7 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
           <StyledMatchInfo>
             <p>
               <Image
+                layout={'responsive'}
                 src={'/images/assets/manchesterunited.webp'}
                 width={100}
                 height={100}
@@ -45,6 +46,7 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
             <p>{el.matchResult || el.time}</p>
             <p>
               <Image
+                layout={'responsive'}
                 src={'/images/assets/fcbarcelona.png'}
                 width={100}
                 height={100}

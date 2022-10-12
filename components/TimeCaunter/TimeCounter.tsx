@@ -1,4 +1,4 @@
-import useDate from 'hooks/useDate';
+import {countTimeInterval} from 'helpers/date';
 import {useEffect, useState} from 'react';
 import {
   StyledTimeContainer,
@@ -13,7 +13,6 @@ interface TimeCounterPropsInterface {
 const TimeCounter: React.FC<TimeCounterPropsInterface> = ({
   date = new Date(),
 }) => {
-  const {countTimeInterval} = useDate();
   const timeInterval = countTimeInterval(date);
   const [timer, setTimer] = useState(timeInterval);
 

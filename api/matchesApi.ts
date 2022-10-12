@@ -1,5 +1,5 @@
 import {matches} from 'db/matches';
-import {createDateFromString} from 'hooks/useDate';
+import {createDateFromString} from 'helpers/date';
 import {MatchInterface} from 'interfaces/match';
 
 interface MatchesApiInterface {

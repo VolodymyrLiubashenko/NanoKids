@@ -14,7 +14,7 @@ const {signUp} = MENU_ITEMS;
 const useNavigationItem = (item: MenuItemInterface) => {
   const {addQueryParams} = useRouters();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-  const {handleOpen} = useModalWindowContext();
+  const {handleOpenModalWindow} = useModalWindowContext();
 
   const openSubMenu = () => {
     setIsSubMenuOpen(true);
@@ -33,7 +33,7 @@ const useNavigationItem = (item: MenuItemInterface) => {
   const menuHandleClick = () => {
     if (item.name === signUp) {
       addQueryParams({contactForm: true});
-      handleOpen();
+      handleOpenModalWindow();
     }
   };
   return {

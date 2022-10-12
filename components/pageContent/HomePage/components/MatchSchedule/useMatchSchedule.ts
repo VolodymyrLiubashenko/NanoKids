@@ -1,23 +1,21 @@
 import matchesApi from 'api/matchesApi';
 import {useTeamContext} from 'context/TeamProvider';
-import useDate from 'hooks/useDate';
+import {isEqualDates} from 'helpers/date';
 import {isEmpty} from 'lodash';
 import {useCallback, useEffect, useState} from 'react';
 import useRouters from 'routes/useRouters';
 
 const useMatcheSchedule = () => {
+  const {query} = useRouters();
   const {team, changeTeam} = useTeamContext();
   const [nextMatchDate, setNextMatchDate] = useState<Date | undefined>(
     undefined
   );
-  const {query} = useRouters();
-  const {isEqualDates} = useDate();
+
   const {getAllMatches} = matchesApi;
   const matches = getAllMatches().filter((el) => el.team === team);
-  console.log('matches: ', matches);
 
   useEffect(() => {
-    console.log('query.team: ', query.team);
     if (query.team instanceof Array) {
       changeTeam(query.team[0]);
       return;
@@ -29,7 +27,6 @@ const useMatcheSchedule = () => {
 
   const findNextMatchDate = useCallback(() => {
     const dates = matches.filter((el) => el.date > new Date());
-    console.log('dates: ', dates);
     if (isEmpty(dates)) {
       return undefined;
     }
@@ -44,10 +41,10 @@ const useMatcheSchedule = () => {
   }, [team]);
 
   useEffect(() => {
-    console.log('nextMatchDateinUseEffect: ', nextMatchDate);
     setNextMatchDate(findNextMatchDate());
   }, [findNextMatchDate]);
-  const PreviusMatchDate = matches.reduce((date: Date, el) => {
+
+  const previusMatchDate = matches.reduce((date: Date, el) => {
     const newDate = el.date;
     if (newDate < new Date() && newDate > date) {
       return newDate;
@@ -56,7 +53,7 @@ const useMatcheSchedule = () => {
   }, new Date(0));
 
   const previusMatches = matches.filter((el) =>
-    isEqualDates(el.date, PreviusMatchDate)
+    isEqualDates(el.date, previusMatchDate)
   );
   const futureMatches = matches.filter((el) => {
     if (nextMatchDate) {
