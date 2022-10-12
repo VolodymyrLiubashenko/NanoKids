@@ -23,7 +23,7 @@ export const StyledHeroImage = styled(motion.div)<StyledHeroImageInterface>`
 
 export const StyledNewsWrapper = styled(motion.div)`
   position: relative;
-  margin-top: 65vh;
+  margin-top: 30vh;
   padding: 30px 20px 70px;
   display: flex;
   justify-content: center;
@@ -32,6 +32,9 @@ export const StyledNewsWrapper = styled(motion.div)`
   border-radius: 30px;
   box-shadow: 0 0 10px #000, inset 0 0 10px #000;
   z-index: 12;
+  @media screen and (min-width: 800px) {
+    margin-top: 60vh;
+  }
 `;
 
 export const StyledNewsContainer = styled(motion.div)`
