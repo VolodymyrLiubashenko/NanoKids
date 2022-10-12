@@ -2,70 +2,62 @@ export interface RawMatchInterface {
   date: string; //MM.DD.YYYY exp (07.05.2022)  5 july 2022
   time: string;
   team: string;
-  firstTeam: {name: string; logo: string};
-  secondTeam: {name: string; logo: string};
+  firstTeam: {name: string};
+  secondTeam: {name: string};
   stadium: string;
   matchResult?: string;
 }
 export const matches = [
   {
-    team: 'secondTeam',
-    date: '09.30.2022',
-    time: '21:00',
+    team: '2013',
+    date: '10.16.2022',
+    time: '12:00',
     firstTeam: {
       name: 'NanoKids',
-      logo: 'nanokids.png',
     },
     secondTeam: {
-      name: 'NanoKids',
-      logo: 'nanokids.png',
+      name: 'Я одесит',
     },
-    stadium: 'Old Traford',
-    matchResult: '2:1',
-  },
-  {
-    team: 'firstTeam',
-    date: '09.30.2022',
-    time: '21:00',
-    firstTeam: {
-      name: 'NanoKids',
-      logo: 'nanokids.png',
-    },
-    secondTeam: {
-      name: 'NanoKids',
-      logo: 'nanokids.png',
-    },
-    stadium: 'Old Traford',
-    matchResult: '2:1',
-  },
-  {
-    team: 'firstTeam',
-    date: '10.15.2022',
-    time: '21:00',
-    firstTeam: {
-      name: 'NanoKids',
-      logo: 'nanokids.png',
-    },
-    secondTeam: {
-      name: 'NanoKids',
-      logo: 'nanokids.png',
-    },
-    stadium: 'Old Traford',
+    stadium: 'Стадіон Чорноморець',
     matchResult: '',
   },
   {
-    team: 'secondTeam',
-    date: '10.10.2022',
+    team: '2014',
+    date: '10.9.2022',
     time: '21:00',
     firstTeam: {
-      name: 'NanoKids',
-      logo: 'nanokids.png',
+      name: 'Я одесит',
     },
     secondTeam: {
       name: 'NanoKids',
-      logo: 'nanokids.png',
     },
-    stadium: 'Old Traford',
+    stadium: 'Стадіон Чорноморець',
+    matchResult: '1:17',
+  },
+  {
+    team: '2013',
+    date: '10.8.2022',
+    time: '21:00',
+    firstTeam: {
+      name: 'NanoKids',
+    },
+    secondTeam: {
+      name: 'ФК Таірово',
+    },
+    stadium: 'Стадіон Чорноморець',
+    matchResult: '3:3',
+  },
+  {
+    team: '2014',
+    date: '10.16.2022',
+    time: '21:00',
+    firstTeam: {
+      name: 'NanoKids',
+    },
+    secondTeam: {
+      name: 'ФК Таірово',
+    },
+    stadium: 'Стадіон Чорноморець',
     matchResult: '',
   },
 ];

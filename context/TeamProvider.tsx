@@ -21,7 +21,7 @@ interface TeamContextProviderPropsInterface {
 const TeamContextProvider: React.FC<TeamContextProviderPropsInterface> = ({
   children,
 }) => {
-  const [team, setTeam] = useState<Team>('firstTeam');
+  const [team, setTeam] = useState<Team>('2013');
 
   const changeTeam = (team: string) => {
     setTeam(team);

@@ -1,5 +1,6 @@
 import {MatchInterface} from 'interfaces/match';
 import Image from 'next/image';
+import teams from 'db/teams';
 import React from 'react';
 import {
   StyledCardContainer,
@@ -18,6 +19,18 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
   matchDayOptions,
 }) => {
   const {month, weekDay, day, state} = useMatchDayCard(matchDayOptions);
+  const firstTeamlogo = (el: MatchInterface) => {
+    const logo = teams.find((elem) => {
+      return elem.name === el.firstTeam.name;
+    });
+    return logo?.logo;
+  };
+  const secondTeamlogo = (el: MatchInterface) => {
+    const logo = teams.find((elem) => {
+      return elem.name === el.secondTeam.name;
+    });
+    return logo?.logo;
+  };
 
   return (
     <StyledCardContainer>
@@ -37,7 +50,7 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
             <p>
               <Image
                 layout={'responsive'}
-                src={'/images/assets/manchesterunited.webp'}
+                src={`/images/assets/${firstTeamlogo(el)}`}
                 width={100}
                 height={100}
                 alt="team"
@@ -47,7 +60,7 @@ const MatchDayCard: React.FC<MatchDayCardPropsInterface> = ({
             <p>
               <Image
                 layout={'responsive'}
-                src={'/images/assets/fcbarcelona.png'}
+                src={`/images/assets/${secondTeamlogo(el)}`}
                 width={100}
                 height={100}
                 alt="team"

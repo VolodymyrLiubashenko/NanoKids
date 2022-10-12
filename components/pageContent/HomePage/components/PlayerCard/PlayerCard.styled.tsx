@@ -16,6 +16,7 @@ export const StyledPlayerCard = styled(motion.div)<StyledPlayerCardInterface>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 5px;
   @media screen and (min-width: 600px) {
     width: 290px;
   }
@@ -39,7 +40,7 @@ export const StyledPlayerInfoContainer = styled(motion.div)`
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
-  padding: 20px 20px 40px;
+  padding: 20px 20px 20px;
 `;
 
 export const StyledBackgroundName = styled(motion.div)`
@@ -61,6 +62,7 @@ export const StyledPlayerName = styled(motion.div)`
   font-size: 50px;
   font-weight: 700;
   color: #ffffff;
+  text-align: center;
   span {
     display: inline-block;
     background: linear-gradient(
