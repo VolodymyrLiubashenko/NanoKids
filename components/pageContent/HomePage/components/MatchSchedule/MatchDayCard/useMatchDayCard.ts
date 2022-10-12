@@ -5,8 +5,8 @@ import {useState, useEffect} from 'react';
 const initialMatchDyOptions: MatchInterface[] = [
   {
     date: new Date(),
-    firstTeam: {logo: '', name: ''},
-    secondTeam: {logo: '', name: ''},
+    firstTeam: {name: ''},
+    secondTeam: {name: ''},
     stadium: '',
     team: '',
     time: '',

@@ -12,7 +12,7 @@ export const StyledHeroImage = styled(motion.div)<StyledHeroImageInterface>`
   right: 0;
   height: 85vh;
   background: ${({$photo}) =>
-      `url(/images/news/${$photo}) center 0 / auto 100% no-repeat`},
+      `url(/images/news/${$photo}) center 0 / contain no-repeat`},
     linear-gradient(
       90deg,
       #04b46b 0%,

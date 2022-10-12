@@ -52,15 +52,7 @@ const HomePage: React.FC = () => {
       <MatchSchedule />
       <CustomSlider {...sliderSettings}>
         {players.map((el) => (
-          <PlayerCard
-            key={el.tshirtNumber}
-            name={el.firstName}
-            dateOfBirth="12.12.2015"
-            $photo="kids1"
-            position={el.position}
-            tshirtNumber={el.tshirtNumber}
-            $team={el.team}
-          />
+          <PlayerCard key={el.lastName + el.tshirtNumber} item={el} />
         ))}
       </CustomSlider>
     </>

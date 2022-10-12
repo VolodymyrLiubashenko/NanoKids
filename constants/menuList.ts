@@ -44,8 +44,9 @@ export const menuList: MenuItemInterface[] = [
     name: MENU_ITEMS.teams,
     urlPath: '',
     subMenu: [
-      {title: '1 команда', query: {team: 'firstTeam'}},
-      {title: '2 команда', query: {team: 'secondTeam'}},
+      {title: 'Команда 2013 р.н.', query: {team: '2013'}},
+      {title: 'Команда 2014 р.н.', query: {team: '2014'}},
+      // {title: 'Команда 2015 р.н.', query: {team: '2015'}},
     ],
   },
   {

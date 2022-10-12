@@ -1,4 +1,5 @@
 import {AnimatePresence, AnimateSharedLayout} from 'framer-motion';
+import {PlayerInterface} from 'interfaces/player';
 import {useState} from 'react';
 import {
   StyledPlayerCard,
@@ -6,59 +7,26 @@ import {
   StyledBackgroundName,
   StyledPlayerName,
   StyledPlayerPosition,
-  StyledAditionalInfo,
-  variants,
-  StyledPlayerCardInterface,
 } from './PlayerCard.styled';
 
-interface PlayerCardPropsInterface extends StyledPlayerCardInterface {
-  name: string;
-  tshirtNumber: number;
-  dateOfBirth: string;
-  position: string;
+interface PlayerCardPropsInterface {
+  item: PlayerInterface;
 }
 
-const PlayerCard: React.FC<PlayerCardPropsInterface> = ({
-  $photo,
-  name,
-  tshirtNumber,
-  dateOfBirth,
-  position,
-  $team,
-}) => {
-  const [isHowered, setIsHowered] = useState(false);
+const PlayerCard: React.FC<PlayerCardPropsInterface> = ({item}) => {
   return (
-    <AnimatePresence initial={true}>
-      <StyledPlayerCard
-        // layoutId={`${name}`}
-        // onHoverStart={() => {
-        //   setIsHowered(true);
-        // }}
-        // onHoverEnd={() => {
-        //   setIsHowered(false);
-        // }}
-        $photo={$photo}
-        $team={$team}
-      >
-        <StyledPlayerInfoContainer>
-          <StyledBackgroundName>{name}</StyledBackgroundName>
-          <StyledPlayerName>
-            <span>{tshirtNumber}</span> {name}
-          </StyledPlayerName>
-          <StyledPlayerPosition>{position}</StyledPlayerPosition>
-          {isHowered && (
-            <StyledAditionalInfo
-            // variants={variants}
-            // animate={'onHowerStart'}
-            // initial={'onHowerEnd'}
-            // exit={'onHowerEnd'}
-            >
-              {dateOfBirth}
-            </StyledAditionalInfo>
-          )}
-        </StyledPlayerInfoContainer>
-      </StyledPlayerCard>
-    </AnimatePresence>
+    <StyledPlayerCard $photo={`${item.lastName}${item.team}`} $team={item.team}>
+      <StyledPlayerInfoContainer>
+        <StyledBackgroundName>{item.lastName}</StyledBackgroundName>
+        <StyledPlayerName>
+          <span>{item.tshirtNumber}</span>
+          <p>
+            {item.lastName} {item.firstName}
+          </p>
+        </StyledPlayerName>
+        <StyledPlayerPosition>{item.position}</StyledPlayerPosition>
+      </StyledPlayerInfoContainer>
+    </StyledPlayerCard>
   );
 };
 
