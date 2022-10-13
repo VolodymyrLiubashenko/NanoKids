@@ -9,7 +9,7 @@ export interface QueryObjectInterface {
 
 const useRouters = () => {
   const router = useRouter();
-  const {query} = router;
+  const {query, pathname} = router;
 
   const goToSelectedPage = (url: string) => {
     router.push(`${url}`);
@@ -18,17 +18,13 @@ const useRouters = () => {
   const removeQueryString = () => {
     const newQuery = {...query, newsId: undefined, contactForm: undefined};
     const querystring = queryString.stringify(newQuery);
-    router.push(
-      `${process.env.NEXT_PUBLIC_BASEURL}${
-        querystring ? '?' + querystring : ''
-      }`
-    );
+    router.push(`${pathname}${querystring ? '?' + querystring : ''}`);
   };
 
   const addQueryParams = (newQueryParams: QueryObjectInterface) => {
     const newQuery = {...query, ...newQueryParams};
     const querystring = queryString.stringify(newQuery);
-    router.push(`${process.env.NEXT_PUBLIC_BASEURL}?${querystring}`);
+    router.push(`${pathname}?${querystring}`);
   };
 
   return {goToSelectedPage, query, addQueryParams, removeQueryString};

@@ -23,7 +23,7 @@ const useMobileMenuItem: UseMobileMenuItem = ({
   handleCloseMenu,
   setActiveIndex,
 }) => {
-  const {addQueryParams} = useRouters();
+  const {addQueryParams, goToSelectedPage} = useRouters();
   const {handleOpenModalWindow} = useModalWindowContext();
 
   const menuItemHandleClick = () => {
@@ -34,6 +34,10 @@ const useMobileMenuItem: UseMobileMenuItem = ({
     }
     if (item.subMenu) {
       setActiveIndex(index);
+    }
+    if (item.urlPath) {
+      handleCloseMenu();
+      goToSelectedPage(item.urlPath);
     }
   };
 

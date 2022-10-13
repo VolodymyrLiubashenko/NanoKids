@@ -3,21 +3,30 @@ export interface TeamInterface {
   logo: string;
 }
 
+export const TEAMS_NAMES = {
+  nanokids: 'NanoKids',
+  chornomorec: 'Чорноморець',
+  yaOdesit: 'Я одесит',
+  tairovo: 'ФК Таірово',
+};
+
+const {nanokids, chornomorec, yaOdesit, tairovo} = TEAMS_NAMES;
+
 const teams: TeamInterface[] = [
   {
-    name: 'NanoKids',
+    name: nanokids,
     logo: 'nanokids.jpg',
   },
   {
-    name: 'Чорноморець',
+    name: chornomorec,
     logo: 'chernomorets.jpg',
   },
   {
-    name: 'Я одесит',
+    name: yaOdesit,
     logo: 'yaodesit.jpg',
   },
   {
-    name: 'ФК Таірово',
+    name: tairovo,
     logo: 'tairovo.png',
   },
 ];

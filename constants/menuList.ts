@@ -59,7 +59,7 @@ export const menuList: MenuItemInterface[] = [
   },
   {
     name: MENU_ITEMS.contacts,
-    urlPath: '',
+    urlPath: '/contactus',
   },
   {
     name: MENU_ITEMS.signUp,

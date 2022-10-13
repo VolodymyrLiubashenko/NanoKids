@@ -1,15 +1,21 @@
 import {Ribbon, StyledLogo, variants} from './Logo.styled';
 import {AnimatePresence} from 'framer-motion';
 import {useState} from 'react';
+import useRouters from 'routes/useRouters';
 
 const Logo: React.FC = () => {
+  const {goToSelectedPage} = useRouters();
   const [isHovered, setIsHovered] = useState(false);
+  const handleClick = () => {
+    goToSelectedPage('/');
+  };
   return (
     <AnimatePresence>
       <StyledLogo
         key="logo"
         variants={variants}
         whileHover={'onHoverStartLogo'}
+        onClick={handleClick}
         onHoverStart={() => {
           setIsHovered(true);
         }}

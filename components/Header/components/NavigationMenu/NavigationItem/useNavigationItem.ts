@@ -9,7 +9,7 @@ type subMenuHandleClickInterface = (
 ) => void;
 
 const useNavigationItem = (item: MenuItemInterface) => {
-  const {addQueryParams} = useRouters();
+  const {addQueryParams, goToSelectedPage} = useRouters();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const {handleOpenModalWindow} = useModalWindowContext();
 
@@ -32,6 +32,9 @@ const useNavigationItem = (item: MenuItemInterface) => {
     if (item.query) {
       addQueryParams(item.query);
       handleOpenModalWindow();
+    }
+    if (item.urlPath) {
+      goToSelectedPage(item.urlPath);
     }
   };
   return {

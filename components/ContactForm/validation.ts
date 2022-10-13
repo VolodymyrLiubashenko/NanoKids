@@ -12,7 +12,10 @@ const validationSchema = yup.object().shape({
   parrentName: yup
     .string()
     .required('Введіть ім’я дитини')
-    .matches(/^[a-zA-Z]+$/, 'Ім’я повинно складатися тільки з букв')
+    .matches(
+      /^[a-zA-ZА-ЩЬЮЯҐЄІЇа-щьюяґєії]+$/,
+      'Ім’я повинно складатися тільки з букв'
+    )
     .max(30, 'Ім’я надто довге')
     .min(2, 'Ім’я надто коротке'),
   childAge: yup
