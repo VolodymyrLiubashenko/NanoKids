@@ -22,7 +22,7 @@ const ContactUsPage = () => {
           <StyledContactsRow>
             <StyledContactItem>
               <p>Через viber</p>
-              <CustomLink href="viber://chat?number=%2B0631888021">
+              <CustomLink href="viber://chat?number=%2B80631888021">
                 <FaViber color="#6246c4" size={20} />
                 +38(093) 188 80 21
               </CustomLink>
