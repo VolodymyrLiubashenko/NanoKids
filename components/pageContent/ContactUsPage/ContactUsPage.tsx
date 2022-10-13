@@ -29,7 +29,7 @@ const ContactUsPage = () => {
             </StyledContactItem>
             <StyledContactItem>
               <p>Через telegram</p>
-              <CustomLink href="tg://resolve?domain=@yl_1990">
+              <CustomLink href="tg://resolve?domain=yl_1990">
                 <FaTelegram color="#0ae3f7" size={20} />
                 +38(093) 188 80 21
               </CustomLink>
