@@ -1,3 +1,5 @@
+import {TEAMS_NAMES} from './teams';
+const {nanokids, tairovo, yaOdesit} = TEAMS_NAMES;
 export interface RawMatchInterface {
   date: string; //MM.DD.YYYY exp (07.05.2022)  5 july 2022
   time: string;
@@ -10,52 +12,52 @@ export interface RawMatchInterface {
 export const matches = [
   {
     team: '2013',
-    date: '10.16.2022',
+    date: '16.10.2022',
     time: '12:00',
     firstTeam: {
-      name: 'NanoKids',
+      name: nanokids,
     },
     secondTeam: {
-      name: 'Я одесит',
+      name: yaOdesit,
     },
     stadium: 'Стадіон Чорноморець',
     matchResult: '',
   },
   {
     team: '2014',
-    date: '10.9.2022',
+    date: '9.10.2022',
     time: '21:00',
     firstTeam: {
-      name: 'Я одесит',
+      name: yaOdesit,
     },
     secondTeam: {
-      name: 'NanoKids',
+      name: nanokids,
     },
     stadium: 'Стадіон Чорноморець',
     matchResult: '1:17',
   },
   {
     team: '2013',
-    date: '10.8.2022',
+    date: '8.10.2022',
     time: '21:00',
     firstTeam: {
-      name: 'NanoKids',
+      name: nanokids,
     },
     secondTeam: {
-      name: 'ФК Таірово',
+      name: tairovo,
     },
     stadium: 'Стадіон Чорноморець',
     matchResult: '3:3',
   },
   {
     team: '2014',
-    date: '10.16.2022',
+    date: '16.10.2022',
     time: '21:00',
     firstTeam: {
-      name: 'NanoKids',
+      name: nanokids,
     },
     secondTeam: {
-      name: 'ФК Таірово',
+      name: tairovo,
     },
     stadium: 'Стадіон Чорноморець',
     matchResult: '',

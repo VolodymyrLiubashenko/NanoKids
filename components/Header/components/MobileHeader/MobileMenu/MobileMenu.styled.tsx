@@ -48,11 +48,6 @@ export const StyledSubMenuListContainer = styled.div`
 `;
 
 export const variants = {
-  openSubMenu: (custom: number) => ({
-    x: 0,
-    transition: {duration: 0.5, delay: custom * 0.1},
-  }),
-  closeSubMenu: {x: 100},
   openHoleMenu: {x: 0, transition: {duration: 0.5}},
   closeHoleMenu: {x: -1000, transition: {duration: 0.5}},
 };
