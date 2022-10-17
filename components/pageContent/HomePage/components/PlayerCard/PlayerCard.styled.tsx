@@ -45,7 +45,7 @@ export const StyledPlayerInfoContainer = styled(motion.div)`
 export const StyledBackgroundName = styled(motion.div)`
   position: absolute;
   left: 0;
-  top: 40%;
+  top: 50%;
   right: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 100px;
@@ -54,7 +54,7 @@ export const StyledBackgroundName = styled(motion.div)`
   color: #ffffff;
   text-transform: uppercase;
   text-align: center;
-  opacity: 0.15;
+  opacity: 0.1;
 `;
 
 export const StyledPlayerName = styled(motion.div)`
