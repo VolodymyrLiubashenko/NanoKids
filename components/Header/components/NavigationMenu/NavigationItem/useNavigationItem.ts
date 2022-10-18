@@ -22,9 +22,15 @@ const useNavigationItem = (item: MenuItemInterface) => {
   };
 
   const subMenuHandleClick: subMenuHandleClickInterface = (e, el) => {
+    if (el.urlPath) {
+      goToSelectedPage(el.urlPath);
+      closeSubMenu();
+      return;
+    }
     if (el.query) {
       addQueryParams(el.query);
       closeSubMenu();
+      return;
     }
   };
 

@@ -18,10 +18,10 @@ export const matches = [
       name: nanokids,
     },
     secondTeam: {
-      name: yaOdesit,
+      name: nanokids,
     },
     stadium: 'Стадіон Чорноморець',
-    matchResult: '',
+    matchResult: '3:7',
   },
   {
     team: '2014',
@@ -57,9 +57,9 @@ export const matches = [
       name: nanokids,
     },
     secondTeam: {
-      name: tairovo,
+      name: yaOdesit,
     },
     stadium: 'Стадіон Чорноморець',
-    matchResult: '',
+    matchResult: '13:0',
   },
 ];
