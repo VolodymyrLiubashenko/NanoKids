@@ -8,13 +8,16 @@ const useSubMenuListItem = (
   const {addQueryParams, goToSelectedPage} = useRouters();
 
   const handleClick = () => {
-    if (item.query) {
-      addQueryParams(item.query);
-    }
     if (item.urlPath) {
+      handleCloseMenu();
       goToSelectedPage(item.urlPath);
+      return;
     }
-    handleCloseMenu();
+    if (item.query) {
+      handleCloseMenu();
+      addQueryParams(item.query);
+      return;
+    }
   };
 
   return {handleClick};

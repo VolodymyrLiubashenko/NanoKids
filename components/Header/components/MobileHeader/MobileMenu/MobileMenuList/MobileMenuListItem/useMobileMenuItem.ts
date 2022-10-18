@@ -1,4 +1,3 @@
-import {MENU_ITEMS} from 'constants/menuList';
 import {MenuItemInterface} from 'constants/menuList';
 import {useModalWindowContext} from 'context/ModalWindowProvider';
 import useRouters, {QueryObjectInterface} from 'routes/useRouters';
@@ -15,8 +14,6 @@ type UseMobileMenuItem = (obj: useMobileMenuItemParamsI) => {
   addQueryParams: (newQueryParams: QueryObjectInterface) => void;
 };
 
-const {signUp} = MENU_ITEMS;
-
 const useMobileMenuItem: UseMobileMenuItem = ({
   index,
   item,
@@ -27,14 +24,16 @@ const useMobileMenuItem: UseMobileMenuItem = ({
   const {handleOpenModalWindow} = useModalWindowContext();
 
   const menuItemHandleClick = () => {
+    if (item.subMenu) {
+      setActiveIndex(index);
+      return;
+    }
     if (item.query) {
       addQueryParams(item.query);
       handleCloseMenu();
       handleOpenModalWindow();
     }
-    if (item.subMenu) {
-      setActiveIndex(index);
-    }
+
     if (item.urlPath) {
       handleCloseMenu();
       goToSelectedPage(item.urlPath);

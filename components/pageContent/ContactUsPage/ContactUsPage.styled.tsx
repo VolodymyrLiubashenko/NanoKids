@@ -72,19 +72,30 @@ export const StyledInfoRow = styled.div`
 `;
 export const StyledInfoRowItem = styled.div`
   flex: 1 0 45%;
-  p {
-    margin-top: 10px;
-    font-size: 20px;
-    color: #fff;
+  @media screen and (min-width: 600px) {
+    display: flex;
+    gap: 40px;
+  }
+`;
+
+export const StyledOfficeImage = styled.div`
+  @media screen and (min-width: 600px) {
+    flex: 1 0 40%;
   }
 `;
 
 export const StyledAddress = styled.div`
   margin: 20px 0 0;
+  @media screen and (min-width: 600px) {
+    flex: 1 0 45%;
+  }
   p {
     margin-top: 10px;
     color: #000;
     font-size: 15px;
     font-weight: 700;
+    @media screen and (min-width: 600px) {
+      font-size: 20px;
+    }
   }
 `;

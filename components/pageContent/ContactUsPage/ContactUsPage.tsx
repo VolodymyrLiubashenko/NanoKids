@@ -11,6 +11,7 @@ import {
   StyledInfoRow,
   StyledInfoRowItem,
   StyledAddress,
+  StyledOfficeImage,
 } from './ContactUsPage.styled';
 
 const ContactUsPage = () => {
@@ -22,23 +23,27 @@ const ContactUsPage = () => {
           <StyledContactsRow>
             <StyledContactItem>
               <p>Через viber</p>
-              <CustomLink href="viber://chat?number=%2B80631888021">
+              <CustomLink
+                href={`viber://chat?number=%2B${process.env.NEXT_PUBLIC_VIBER}`}
+              >
                 <FaViber color="#6246c4" size={20} />
-                +38(093) 188 80 21
+                +38(098) 975 94 92
               </CustomLink>
             </StyledContactItem>
             <StyledContactItem>
               <p>Через telegram</p>
-              <CustomLink href="tg://resolve?domain=yl_1990">
+              <CustomLink
+                href={`tg://resolve?domain=${process.env.NEXT_PUBLIC_TELEGRAM}`}
+              >
                 <FaTelegram color="#0ae3f7" size={20} />
-                +38(093) 188 80 21
+                +38(098) 975 94 92
               </CustomLink>
             </StyledContactItem>
             <StyledContactItem>
               <p>За номером телефону</p>
-              <CustomLink href="tel:+380631888021">
+              <CustomLink href={`tel:${process.env.NEXT_PUBLIC_PHONE}`}>
                 <FaPhoneVolume color="#000" size={20} />
-                +38(093) 188 80 21
+                +38(098) 975 94 92
               </CustomLink>
             </StyledContactItem>
           </StyledContactsRow>
@@ -46,32 +51,19 @@ const ContactUsPage = () => {
         <StyledInfoBlock>
           <StyledInfoRow>
             <StyledInfoRowItem>
-              <Image
-                src={'/images/assets/office.jfif'}
-                layout="responsive"
-                width={200}
-                height={150}
-                alt={'office'}
-              />
-              <p>м.Одеса</p>
+              <StyledOfficeImage>
+                <Image
+                  src={'/images/assets/office.jfif'}
+                  layout="responsive"
+                  width={200}
+                  height={150}
+                  alt={'office'}
+                />
+              </StyledOfficeImage>
+
               <StyledAddress>
-                <p>Одеса</p>
+                <p>м.Одеса</p>
                 <p>11 ст. Люстдорф. дороги 3А</p>
-                <p>+380631888021</p>
-              </StyledAddress>
-            </StyledInfoRowItem>
-            <StyledInfoRowItem>
-              <Image
-                src={'/images/assets/office.jfif'}
-                layout="responsive"
-                width={200}
-                height={150}
-                alt={'office'}
-              />
-              <p>м.Одеса</p>
-              <StyledAddress>
-                <p>Одеса</p>
-                <p>Книжний провулок 19</p>
                 <p>+380631888021</p>
               </StyledAddress>
             </StyledInfoRowItem>

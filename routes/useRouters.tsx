@@ -12,7 +12,7 @@ const useRouters = () => {
   const {query, pathname} = router;
 
   const goToSelectedPage = (url: string) => {
-    router.push(`${url}`);
+    router.push(url);
   };
 
   const removeQueryString = () => {
